@@ -1,0 +1,35 @@
+/* Create three equal columns that floats next to each other */
+.education-column {
+    float: left;
+    width: 33.33%;
+    padding: 0px;
+}
+
+/* Clear floats after the columns */
+.education-row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .education-column {
+        width: 100%;
+    }
+}
+
+/* Gradient hr lines */
+hr.gradient-line {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+/* Modifications to the main theme */
+.user-details p {
+    font-size: 16px;
+}
+.user-details h2 {
+    font-weight: 400;
+}

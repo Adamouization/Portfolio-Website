@@ -4375,8 +4375,8 @@ article, aside, figcaption, figure, footer, header, nav, section {
 }
 
 h1, h2, h3, h4, stong {
-    margin-top: 1em;
-    padding-top: 1em;
+    margin-top: 0.5em;
+    padding-top: 0.5em;
     line-height: 1.25;
     color: #333
 }
