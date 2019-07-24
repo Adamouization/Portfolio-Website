@@ -1,3 +1,7 @@
+# Local files
+node_modules
+
+
 # Covers Jekyll project files
 
 _site/
@@ -105,6 +109,3 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
-
-node_modules
