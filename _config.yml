@@ -1,7 +1,7 @@
 # Site settings
 title: Adam Jaamour
 description: My personal programming website, including my programming experiences, education, past jobs, contact details, and more.
-url: "http://127.0.0.1:4000/" # the base hostname & protocol for your site
+url: "http://www.adam.jaamour.com" # the base hostname & protocol for your site
 # baseurl: "" # the subpath of your site, e.g. /blog
 
 # User settings
@@ -12,6 +12,5 @@ email: adam@jaamour.com
 # Global settings
 icon_size: 58
 
-# Google-analytics
-google-analytics:
-  id: ""
+# Google analytics tracking ID
+google_analytics_tracking_id: UA-116916521-4
