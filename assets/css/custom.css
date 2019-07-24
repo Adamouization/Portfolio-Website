@@ -1,3 +1,8 @@
+/*
+ * Custom CSS classes to modify theme and library stylesheets.
+ * Author: Adam Jaamour
+ */
+
 /* Create three equal columns that floats next to each other */
 .education-column {
     float: left;
@@ -39,4 +44,9 @@ hr.gradient-line {
 }
 .user-details-bis h2 {
     font-weight: 400;
+}
+
+/* GitHub buttons next to h3 project titles */
+.h3-project-title {
+    margin-right: 15px;
 }

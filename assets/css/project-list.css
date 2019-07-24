@@ -1,0 +1,171 @@
+/*************************************************************************
+ * GitHub: https://github.com/yenchiah/project-website-template
+ * Version: v3.8
+ * This CSS file is for the website frame
+ * If you want to keep this template updated, avoid modifying this file
+ * Instead, add your own CSS in the index.css
+ *************************************************************************/
+
+.projects-list-title {
+    text-align: center;
+    margin: 5px auto
+}
+
+.projects-list-title h1, body {
+    font-weight: 400
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+    box-sizing: border-box;
+}
+
+/* Remove any visible change to hyperlinks */
+.flex-column a {
+    cursor: default;
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.flex-column h3 {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.flex-row-space-between {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: stretch;
+    box-sizing: border-box;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+    box-sizing: border-box;
+}
+
+.flex-row p {
+    font-size: 16px;
+}
+
+.flex-row-center {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+    box-sizing: border-box;
+}
+
+.flex-item-stretch {
+    flex: 1 auto;
+}
+
+.flex-item-stretch-2 {
+    flex: 1 auto;
+}
+
+.flex-item-stretch-3 {
+    flex: 1 auto;
+}
+
+.flex-item-stretch-4 {
+    flex: 1 auto;
+}
+
+.flex-item-stretch-5 {
+    flex: 1 auto;
+}
+
+.flex-item {
+    margin: 0 20px;
+}
+
+.left-align {
+    float: left;
+}
+
+.right-align {
+    float: right;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.image {
+    border-radius: 2px;
+    width: 100%;
+    margin: 15px 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    display: table-cell;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.max-width-400 {
+    max-width: 400px;
+}
+
+.max-width-140 {
+    max-width: 140px;
+}
+
+.center-align-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-align-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@media screen and (min-width: 900px) {
+    .flex-item-stretch {
+        flex: 1;
+    }
+
+    .flex-item-stretch-2 {
+        flex: 2;
+    }
+
+    .flex-item-stretch-3 {
+        flex: 3;
+    }
+
+    .flex-item-stretch-4 {
+        flex: 4;
+    }
+
+    .flex-item-stretch-5 {
+        flex: 5;
+    }
+}
