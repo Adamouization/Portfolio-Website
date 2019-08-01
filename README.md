@@ -7,7 +7,7 @@ You can visit the website live here: [www.adam.jaamour.com](http://www.adam.jaam
 
 ## Screenshots
 
-TODO
+![Welcome page screenshot](assets/img/screenshot.png)
 
 ## Download
 
