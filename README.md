@@ -11,7 +11,7 @@ You can visit the website live here: [www.adam.jaamour.com](http://www.adam.jaam
 
 ## Download
 
-TODO
+* [v1.0](assets/releases/Adamouization.github.io-master-v1.0.zip)
 
 ## Usage
 
@@ -30,7 +30,8 @@ bundle exec jekyll serve --watch
 * Visit the website on `127.0.0.1:4000`
 
 ## To Do
-* see [TODO](https://github.com/Adamouization/Adamouization.github.io/projects/1) file.
+* see [TODO - Initial Release](https://github.com/Adamouization/Adamouization.github.io/projects/1) file.
+* see [TODO - Future Releases](https://github.com/Adamouization/Adamouization.github.io/projects/3) file.
 
 ## License 
 * see [LICENSE](https://github.com/Adamouization/Adamouization.github.io/blob/master/LICENSE) file.
