@@ -12,8 +12,9 @@ You can visit the website live here: [www.adam.jaamour.com](http://www.adam.jaam
 ## Download
 
 * [v1.0](assets/releases/Adamouization.github.io-master-v1.0.zip)
+* [v1.1](assets/releases/Adamouization.github.io-master-v1.1.zip)
 
-## Usage
+## Local Usage
 
 How to run the website locally.
 
