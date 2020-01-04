@@ -23,6 +23,8 @@ How to run the website locally.
 $ git clone https://github.com/Adamouization/Adamouization.github.io
 ```
 
+* [Install Jekyll](https://jekyllrb.com/docs/installation/)
+
 * Move in the directory and run the following command:
 ```
 bundle exec jekyll serve --watch
