@@ -137,9 +137,7 @@
 }
 
 .center-align-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 .left-align-content {
