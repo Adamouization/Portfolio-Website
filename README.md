@@ -18,14 +18,20 @@ You can visit the website live here: [www.adam.jaamour.com](http://www.adam.jaam
 
 How to run the website locally.
 
+* [Install Jekyll](https://jekyllrb.com/docs/installation/)
+
 * Clone the repository (or download the zipped project):
 ```
 $ git clone https://github.com/Adamouization/Adamouization.github.io
 ```
 
-* [Install Jekyll](https://jekyllrb.com/docs/installation/)
+* Move in the directory and install the dependencies specified in the Gemfile:
 
-* Move in the directory and run the following command:
+```
+bundle install
+```
+
+* Compile and run the website:
 ```
 bundle exec jekyll serve --watch
 ```
