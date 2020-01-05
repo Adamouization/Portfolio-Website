@@ -128,6 +128,13 @@
     border-radius: 2px;
 }
 
+/* Hide large projects image on small screens. */
+@media screen and (max-width: 900px) {
+    .image {
+        display: none;
+    }
+}
+
 .max-width-400 {
     max-width: 400px;
 }
