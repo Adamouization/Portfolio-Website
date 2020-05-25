@@ -24,6 +24,11 @@
     }
 }
 
+.work-text {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 /* HR lines */
 hr.gradient-line { /* used between website sections */
     border: 0;
