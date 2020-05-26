@@ -11,10 +11,11 @@ You can visit the website live here: [www.adam.jaamour.com](http://www.adam.jaam
 
 ## Download
 
-* [v1.0](https://github.com/Adamouization/Adamouization.github.io/releases/tag/v1.0)
-* [v1.1](https://github.com/Adamouization/Adamouization.github.io/releases/tag/v1.1)
-* [v1.2](https://github.com/Adamouization/Adamouization.github.io/releases/tag/v1.2)
+* [v2.0](https://github.com/Adamouization/Adamouization.github.io/releases/tag/v2.0)
 * [v1.3](https://github.com/Adamouization/Adamouization.github.io/releases/tag/v1.3)
+* [v1.2](https://github.com/Adamouization/Adamouization.github.io/releases/tag/v1.2)
+* [v1.1](https://github.com/Adamouization/Adamouization.github.io/releases/tag/v1.1)
+* [v1.0](https://github.com/Adamouization/Adamouization.github.io/releases/tag/v1.0)
 
 ## Local Usage
 
