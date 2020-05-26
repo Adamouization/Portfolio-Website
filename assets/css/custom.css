@@ -59,3 +59,21 @@ hr.dashed-line {/* used between projects */
 .h3-project-title {
     margin-right: 15px;
 }
+
+/* Recommended book readings */
+.zoom-container {
+    transition: transform .2s;
+    box-sizing: border-box;
+    margin: 25px 40px 25px;
+    text-align: center
+}
+.zoom-container:hover {
+    -ms-transform: scale(1.25); /* IE 9 */
+    -webkit-transform: scale(1.25); /* Safari 3-8 */
+    transform: scale(1.25);
+}
+.book-zoom {
+    max-height: 275px;
+    display: block;
+    margin: 0 auto;
+}
