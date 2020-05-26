@@ -1,19 +1,24 @@
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <meta name="keywords" content ="software engineer, software, code, AI, artificial intelligence, formula 1, f1, python, java, jekyll, portfolio, resume, adam jaamour"/>
-  <meta name="revised" content = "Adam Jaamour, date_last_edited: 25/07/2019"/>
-  <meta name="author" content = "Adam Jaamour"/>
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description"
+          content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="keywords"
+          content="software engineer, software, code, AI, artificial intelligence, formula 1, f1, python, java, jekyll, portfolio, resume, adam jaamour"/>
+    <meta name="revised" content="Adam Jaamour, date_last_edited: 26/05/2020"/>
+    <meta name="author" content="Adam Jaamour"/>
 
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}">
-  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | prepend: site.baseurl }}">
-  <link rel="stylesheet" href="{{ '/assets/css/project-list.css' | prepend: site.baseurl }}">
-  <link rel="stylesheet" href="{{ '/assets/css/buttons.css' | prepend: site.baseurl }}">
-  <link rel="shortcut icon" type="image/png" href="{{ '/assets/favicon.ico' }}" >
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ '/assets/css/custom.css' | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ '/assets/css/project-list.css' | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ '/assets/css/project-cards.css' | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ '/assets/css/buttons.css' | prepend: site.baseurl }}">
+    <link rel="shortcut icon" type="image/png" href="{{ '/assets/favicon.ico' }}">
 
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
