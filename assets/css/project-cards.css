@@ -72,6 +72,9 @@
 .language-tag-wrapper {
     margin-top: -15px;
 }
+.language-tag-wrapper a {
+    text-decoration: none;
+}
 
 .language-tag {
     display: inline-flex;
@@ -84,7 +87,6 @@
     position: relative;
     font-size: 13px;
     text-align: right;
-    cursor: default;
 }
 
 .python-language {
