@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
     particlesJS("particles-js", {
         particles: {
             number: {
-                value: 125,
+                value: 110,
                 density: {
                     enable: true,
-                    value_area: 500
+                    value_area: 700
                 }
             },
             color: {
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     color: "#000000"
                 },
                 polygon: {
-                    nb_sides: 7
+                    nb_sides: 6
                 },
                 image: {
                     src: "img/github.svg",
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 anim: {
                     enable: true,
                     speed: 1,
-                    opacity_min: 0,
+                    opacity_min: 0.1,
                     sync: false
                 }
             },
@@ -58,12 +58,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 enable: true,
                 distance: 150,
                 color: "#ffffff",
-                opacity: .4,
+                opacity: 0.5,
                 width: 1
             },
             move: {
                 enable: true,
-                speed: 1.25,
+                speed: 4,
                 direction: "none",
                 random: true,
                 straight: false,
@@ -81,23 +81,23 @@ document.addEventListener("DOMContentLoaded", function () {
             events: {
                 onhover: {
                     enable: true,
-                    mode: "bubble"
+                    mode: "grab"
                 }, onclick: {
-                    enable: false,
-                    mode: "repulse"
+                    enable: true,
+                    mode: "push"
                 },
                 resize: true
             },
             modes: {
                 grab: {
-                    distance: 400,
+                    distance: 150,
                     line_linked: {
                         opacity: 1
                     }
                 },
                 bubble: {
                     distance: 250,
-                    size: 0,
+                    size: 3.25,
                     duration: 2,
                     opacity: 0,
                     speed: 3
