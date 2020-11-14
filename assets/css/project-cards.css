@@ -46,6 +46,12 @@
     margin-top: -15px;
 }
 
+/* Mozilla Firefox download button. */
+.card img {
+    margin-top:-15px;
+    margin-bottom: 10px;
+}
+
 .github-button {
     border: none;
     outline: 0;
