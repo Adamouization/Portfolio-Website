@@ -79,3 +79,10 @@ hr.dashed-line { /* used between projects */
     display: block;
     margin: 0 auto;
 }
+
+/* Mathematical expressions */
+.sup {
+    position: relative;
+    bottom: 1ex;
+    font-size: 80%;
+}
