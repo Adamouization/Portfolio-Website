@@ -36,7 +36,7 @@ hr.gradient-line { /* used between website sections */
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
 hr.dashed-line { /* used between projects */
-    width: 50%;
+    width: 95%;
     border: 0;
     height: 1px;
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
