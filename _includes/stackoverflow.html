@@ -1,0 +1,197 @@
+<div class="flex-row projects-list-title">
+    <div class="flex-item flex-column full-width">
+        <h1>Top StackOverflow Posts</h1>
+    </div>
+</div>
+
+<!---------------------------------------------------------------------------------------------------------------------->
+<!-- Accordion: https://www.w3schools.com/w3css/w3css_accordions.asp -->
+<!-- Code highlighting: http://hilite.me/ -->
+
+<!-- First question: Comparing dictionary key with string-->
+<button onclick="revealStackOverflowPost('Python1')" class="w3-btn w3-block w3-left-align">
+    <img class="upvote-arrow" src="assets/img/so-arrow-up.png" height=23.5 alt="upvote arrow">
+    <span><b>5</b>&#8195;Comparing dictionary key with string&#8195;<i>25 April 2018</i></span>
+</button>
+<div id="Python1" class="w3-container w3-hide">
+    <h3>User Question</h3>
+    I'm trying to compare the key in a dictionary with a string in Python but I can't find any way of doing this. Let's
+    say I have:
+    <br>
+    <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">dict</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span><span style="color: #e6db74">&quot;a&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;b&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">}</span></pre></div>
+    <br>
+    And I want to compare the key of the first index in the dictionary (which is "a") with with a string. So something
+    like:
+    <br>
+    <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">if</span> <span style="color: #e6db74">&#39;Dictionary key&#39;</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&quot;a&quot;</span><span style="color: #f8f8f2">:</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">True</span>
+<span style="color: #66d9ef">else</span><span style="color: #f8f8f2">:</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">False</span>
+</pre></div>
+    <br>
+    Is there a way of doing this? Appreciate all the help I can get.
+    <h3>My Answer</h3>
+    Python dictionnaries have keys and values accessed using those keys.
+    <br>
+    You can access the keys as follows, your dict key will be stored in the key variable:
+    <br>
+    <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">my_dict</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span><span style="color: #e6db74">&quot;a&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;b&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">}</span>
+<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">key</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">my_dict:</span>
+    <span style="color: #66d9ef">print</span><span style="color: #f8f8f2">(key)</span>
+</pre></div>
+    <br>
+    This will print:
+    <br>
+    <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">a</span>
+<span style="color: #f8f8f2">b</span>
+</pre></div>
+    <br>
+    You can then do any comparisons you want:
+    <br>
+    <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">my_dict</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span><span style="color: #e6db74">&quot;a&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;b&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">}</span>
+<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">key</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">my_dict:</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">key</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&quot;a&quot;</span><span style="color: #f8f8f2">:</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">True</span>
+    <span style="color: #66d9ef">else</span><span style="color: #f8f8f2">:</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">False</span>
+</pre></div>
+    <br>
+    which can be improved to:
+    <br>
+    <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">my_dict</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span><span style="color: #e6db74">&quot;a&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;b&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">}</span>
+<span style="color: #66d9ef">print</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;a&quot;</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">my_dict</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">keys())</span>
+</pre></div>
+    <br>
+    You can then access the values for each key in your dict as follows:
+    <br>
+    <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">my_dict</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span><span style="color: #e6db74">&quot;a&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;b&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">}</span>
+<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">key</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">my_dict:</span>
+    <span style="color: #66d9ef">print</span><span style="color: #f8f8f2">(my_dict[key])</span>
+</pre></div>
+    <br>
+    This will print:
+    <br>
+    <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ae81ff">1</span>
+<span style="color: #ae81ff">2</span>
+</pre></div>
+    <br>
+    I suggest you read more about dictionaries from the official Python documentation:
+    <a href="https://docs.python.org/3.6/tutorial/datastructures.html#dictionaries" target="_blank">https://docs.python.org/3.6/tutorial/datastructures.html#dictionaries</a>
+    <h4>Link to StackOverflow question</h4>
+    <a href="https://stackoverflow.com/questions/50018955/python-comparing-dictionary-key-with-string/50019034#50019034" target="_blank">
+        https://stackoverflow.com/questions/50018955/python-comparing-dictionary-key-with-string
+    </a>
+    <br>
+    <hr style="width: 75%">
+    <br>
+</div>
+
+<!---------------------------------------------------------------------------------------------------------------------->
+
+<!-- Second question: Comparing dictionary key with string-->
+<button onclick="revealStackOverflowPost('Python2')" class="w3-btn w3-block w3-left-align">
+    <img class="upvote-arrow" src="assets/img/so-arrow-up.png" height=23.5 alt="upvote arrow">
+    <span><b>4</b>&#8195;Detecting year in list of strings&#8195;<i>18 April 2018</i></span>
+</button>
+<div id="Python2" class="w3-container w3-hide">
+    <h3>User Question</h3>
+    I have list of strings like this:
+    <br>
+    <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">words</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&#39;hello&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;world&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;name&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;1&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;2018&#39;</span><span style="color: #f8f8f2">]</span>
+</pre></div>
+    <br>
+    I looking for the fastest way (python 3.6) to detect year "word" in the list. For example, "2018" is year. "1" not. Let's define the acceptable year range to 2000-2020.
+    <br>
+    Possible solution: check if the word is number ('2018'.isdigit()) and then convert it to int and check if valid range.
+    <br>
+    What is the fastest way to do it in python?
+    <h3>My Answer</h3>
+    You can build a set of your valid years (as strings). Then loop through each of the words you want to test to check if it is a valid year:
+    <br>
+    <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">words</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&#39;hello&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;world&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;name&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;1&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;2018&#39;</span><span style="color: #f8f8f2">]</span>
+<span style="color: #f8f8f2">valid_years</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{str(x)</span> <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">range(</span><span style="color: #ae81ff">2000</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">2021</span><span style="color: #f8f8f2">)}</span>
+
+<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">word</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">words:</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">word</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">valid_years:</span>
+        <span style="color: #66d9ef">print</span> <span style="color: #f8f8f2">word</span>
+</pre></div>
+    <br>
+    As Martijn Pieters mentioned in the comments, sets are the fastest solution for accessing items with an O(1) complexity:
+    <br>
+    <blockquote><i>Sets let you test for membership in O(1) time, using a list has a linear O(length_of_list) cost</i></blockquote>
+    As you can see in the comments, there are a lot of different ways of generating the set of valid_years, as long as your data structure is a Set you will have the fastest way of doing what you want.
+    <br>
+    You can read more here:
+    <br>
+    <ul>
+        <li><a href="https://docs.python.org/3.6/tutorial/datastructures.html#list-comprehensions" target="_blank">List comprehension</a></li>
+        <li><a href="https://www.tutorialspoint.com/python_data_structure/python_sets.htm" target="_blank">Sets</a></li>
+        <li><a href="https://wiki.python.org/moin/TimeComplexity" target="_blank"> Complexities for different Python data structures</a>(so you can understand which data structures in Python are quicker for specific operations)</li>
+    </ul>
+    <h4>Link to StackOverflow question</h4>
+    <a href="https://stackoverflow.com/questions/49895321/detecting-year-in-list-of-strings/49895484#49895484" target="_blank">
+        https://stackoverflow.com/questions/49895321/detecting-year-in-list-of-strings
+    </a>
+    <br>
+    <hr style="width: 75%">
+    <br>
+</div>
+
+<!---------------------------------------------------------------------------------------------------------------------->
+
+<!-- Third question: How to customize database connection settings' timezone in django?-->
+<button onclick="revealStackOverflowPost('Python3')" class="w3-btn w3-block w3-left-align">
+    <img class="upvote-arrow" src="assets/img/so-arrow-up.png" height=23.5 alt="upvote arrow">
+    <span><b>3</b>&#8195;How to customize database connection settings' timezone in django?&#8195;<i>13 March 2018</i></span>
+</button>
+<div id="Python3" class="w3-container w3-hide">
+    <h3>User Question</h3>
+    I am looking into django db backends. I have found that datetime values' timezone are changed to and forth by django, while saving dates into db as well as retrieving them. During this conversion process, django uses database connection's timezone settings.
+    <br>
+    I have seen that by default for sqlite db, 'UTC' is the timezone. I want to change the database connections options, during the start of django application. How can I do that ?
+    <br>
+    Thanks in advance.
+    <h3>My Answer</h3>
+    From the official Django documentation:
+    <blockquote>
+        <i>
+            When support for time zones is enabled, Django stores datetime information in UTC in the database, uses time-zone-aware datetime objects internally, and translates them to the end user’s time zone in templates and forms.
+            <br>
+            Time zone support is disabled by default.
+        </i>
+    </blockquote>
+    <br>
+    Because time zone support if disabled by default, you need to manually specify that you want Django to support it. You can do so in your settings.py: For example, if you want UTC +1, then use:
+    <br>
+    <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e"># enable time zone support</span>
+<span style="color: #f8f8f2">USE_TZ</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">True</span>
+
+<span style="color: #75715e"># select a timezone</span>
+<span style="color: #f8f8f2">TIME_ZONE</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&#39;Europe/Rome&#39;</span>
+</pre></div>
+    <br>
+    Quotes were found from the official Django documentation, which you can access <a href="https://docs.djangoproject.com/en/2.0/topics/i18n/timezones/" target="_blank">here</a>. I strongly recommend having a read, their documentation is really clear/useful.
+    <br><br>
+    Also, if you need other time zones, here is a list of all usable time zones you could use <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank">here</a>, which I found from <a href="https://stackoverflow.com/questions/29311354/how-to-set-the-timezone-in-django/29311392#29311392" target="_blank">this post</a>.
+    <h4>Link to StackOverflow question</h4>
+    <a href="https://stackoverflow.com/questions/49259661/how-to-customize-database-connection-settings-timezone-in-django/49260254#49260254" target="_blank">
+        https://stackoverflow.com/questions/49259661/how-to-customize-database-connection-settings-timezone-in-django
+    </a>
+    <br>
+    <hr style="width: 75%">
+    <br>
+</div>
+
+<!---------------------------------------------------------------------------------------------------------------------->
+
+<br>
+<br>
+
+<a href="https://stackoverflow.com/users/5609328/adam-jaamour"><img
+        src="https://stackoverflow.com/users/flair/5609328.png" width="208" height="58"
+        alt="profile for Adam Jaamour at Stack Overflow, Q&amp;A for professional and enthusiast programmers"
+        title="profile for Adam Jaamour at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
+<br>
+<br>
+
+<!--stats: flair, number of people reached-->
