@@ -1,14 +1,23 @@
+// Get all accordion headers
+const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+// Add event listeners to accordion headers
 /**
- * Reveals/hide an accordion container for a StackOverflow post.
- * @param id: ID of the html div for a single StackOverflow post
+ * Use querySelectorAll to get all the accordion headers, and forEach to add event listeners to each header.
+ * Inside the event listener function, use classList to toggle the active class on the header and toggle button,
+ * and style.display to toggle the visibility of the accordion body.
  */
-function revealStackOverflowPost(id) {
-    const x = document.getElementById(id);
-    if (x.className.indexOf("w3-show") === -1) {
-        x.className += " w3-show";
-        x.previousElementSibling.className = x.previousElementSibling.className.replace("", "w3-red");
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-        x.previousElementSibling.className = x.previousElementSibling.className.replace("", "w3-black");
-    }
-}
+accordionHeaders.forEach(header => {
+    // Toggle visibility of accordion body when header is clicked
+    header.addEventListener('click', function() {
+        this.classList.toggle('active');
+        const accordionBody = this.nextElementSibling;
+        if (accordionBody.style.display === 'block') {
+            accordionBody.style.display = 'none';
+        } else {
+            accordionBody.style.display = 'block';
+        }
+        const accordionToggle = this.querySelector('.accordion-toggle');
+        accordionToggle.classList.toggle('active');
+    });
+});
