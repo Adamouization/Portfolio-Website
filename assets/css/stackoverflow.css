@@ -88,3 +88,26 @@
 .accordion-toggle:not(.collapsed) {
     transform: rotate(0deg);
 }
+
+@media only screen and (max-width: 768px) {
+    .accordion-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .accordion-header-left {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .accordion-header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .accordion-title {
+        max-width: 100%;
+        white-space: normal;
+        word-break: break-word;
+    }
+}
