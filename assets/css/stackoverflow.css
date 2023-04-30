@@ -64,3 +64,27 @@
 .accordion-body p {
     margin: 0;
 }
+
+.accordion-toggle {
+    background-color: transparent;
+    border: none;
+    color: #999;
+    font-size: 20px;
+    line-height: 1;
+    margin-left: 10px;
+    outline: none;
+    padding: 0;
+    transition: transform 0.2s ease-in-out;
+}
+
+.accordion-toggle:hover {
+    color: #000;
+}
+
+.accordion-toggle.collapsed {
+    transform: rotate(45deg);
+}
+
+.accordion-toggle:not(.collapsed) {
+    transform: rotate(0deg);
+}

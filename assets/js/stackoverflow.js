@@ -19,5 +19,6 @@ accordionHeaders.forEach(header => {
         }
         const accordionToggle = this.querySelector('.accordion-toggle');
         accordionToggle.classList.toggle('active');
+        accordionToggle.classList.toggle('collapsed');
     });
 });

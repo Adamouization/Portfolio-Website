@@ -4,10 +4,98 @@
     </div>
 </div>
 
-<!-- Code highlighting: http://hilite.me/ -->
+<!-- Code highlighting: http://hilite.me/ (no line numbers, monokai) -->
 
-<!-- First question: Comparing dictionary key with string-->
+
 <div class="accordion">
+    <!-- How do I detect and fill one pixel gaps in image in python -->
+    <div class="accordion-header">
+        <div class="accordion-header-left">
+            <div class="accordion-icon"><i class="icon fa fa-caret-up" style="color: orange"></i></div>
+            <div class="accordion-number">2</div>
+            <h3 class="accordion-title">How do I detect and fill one pixel gaps in image in python</h3>
+        </div>
+        <div class="accordion-header-right">
+            <div class="accordion-date">September 7, 2022</div>
+            <button class="accordion-toggle">+</button>
+        </div>
+    </div>
+    <div class="accordion-body">
+        <h3>User Question</h3>
+        I want to take an image that looks like this:
+        <img src="assets/img/stackoverflow_post_images/so_q_20220907_before.png" alt="before" style="width: 100%">
+        <br>
+        And make it look more like this:
+        <img src="assets/img/stackoverflow_post_images/so_q_20220907_after.png" alt="after" style="width: 100%">
+        <br>
+        My thinking being you could look a line of 3 pixels and if the left and right most pixel green then fill in the
+        center one, and do the same but with 3 horizontal pixels. run that 3 or 4 times and that would take care of most
+        of it.
+
+        <h3>My Answer</h3>
+        You can use the <a
+            href="https://opencv24-python-tutorials.readthedocs.io/en/latest/py_tutorials/py_tutorials.html"
+            target="_blank">OpenCV Python library</a> for this kind of operation.
+        <br>
+        More specifically, you can use <a
+            href="https://opencv24-python-tutorials.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_morphological_ops/py_morphological_ops.html#morphological-transformations"
+            target="_blank">morphological transformations</a>, which are available in OpenCV:
+        <blockquote><i>
+            Morphological transformations are some simple operations based on the image shape. It is normally performed
+            on binary images. It needs two inputs, one is our original image, second one is called structuring element
+            or kernel which decides the nature of operation. Two basic morphological operators are Erosion and Dilation.
+            Then its variant forms like Opening, Closing, Gradient etc also comes into play. We will see them one-by-one
+            with help of following image.
+        </i></blockquote>
+
+        You could use a <a
+            href="https://opencv24-python-tutorials.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_morphological_ops/py_morphological_ops.html#closing"
+            target="_blank">closing operator</a>, which is:
+        <blockquote><i>
+            Closing is reverse of Opening, Dilation followed by Erosion. It is useful in closing small holes inside the
+            foreground objects, or small black points on the object.
+        </i></blockquote>
+        The result would look something like this:
+        <img src="assets/img/stackoverflow_post_images/so_a_20220907_example.png" alt="before" style="width: 100%">
+
+        And the code would look something like this (you would need to load the image and define a <a
+            href="https://opencv24-python-tutorials.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_morphological_ops/py_morphological_ops.html#structuring-element"
+            target="_blank">kernel</a>):
+        <!-- HTML generated using hilite.me -->
+        <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre
+                style="margin: 0; line-height: 125%"><span style="color: #f92672">import</span> <span
+                style="color: #f8f8f2">cv2</span>
+<span style="color: #f92672">import</span> <span style="color: #f8f8f2">numpy</span> <span
+                    style="color: #f92672">as</span> <span style="color: #f8f8f2">np</span>
+
+<span style="color: #f8f8f2">img</span> <span style="color: #f92672">=</span> <span
+                    style="color: #f8f8f2">cv2</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">imread(</span><span
+                    style="color: #e6db74">&#39;&lt;path_to_your_image&gt;&#39;</span><span
+                    style="color: #f8f8f2">,</span><span style="color: #ae81ff">0</span><span
+                    style="color: #f8f8f2">)</span>
+<span style="color: #f8f8f2">kernel</span> <span style="color: #f92672">=</span> <span
+                    style="color: #f8f8f2">np</span><span style="color: #f92672">.</span><span
+                    style="color: #f8f8f2">ones((</span><span
+                    style="color: #ae81ff">5</span><span style="color: #f8f8f2">,</span><span
+                    style="color: #ae81ff">5</span><span style="color: #f8f8f2">),np</span><span
+                    style="color: #f92672">.</span><span
+                    style="color: #f8f8f2">uint8)</span>
+
+<span style="color: #f8f8f2">closing</span> <span style="color: #f92672">=</span> <span
+                    style="color: #f8f8f2">cv2</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">morphologyEx(img,</span> <span
+                    style="color: #f8f8f2">cv2</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">MORPH_CLOSE,</span> <span
+                    style="color: #f8f8f2">kernel)</span>
+</pre>
+        </div>
+
+        <h4>Link to StackOverflow question</h4>
+        <a href="https://stackoverflow.com/questions/73632815/how-do-i-detect-and-fill-one-pixel-gaps-in-image-in-python/73632973#73632973"
+           target="_blank">
+            https://stackoverflow.com/questions/73632815/how-do-i-detect-and-fill-one-pixel-gaps-in-image-in-python/73632973#73632973
+        </a>
+    </div>
+
+    <!-- Comparing dictionary key with string-->
     <div class="accordion-header">
         <div class="accordion-header-left">
             <div class="accordion-icon"><i class="icon fa fa-caret-up" style="color: orange"></i></div>
@@ -16,7 +104,7 @@
         </div>
         <div class="accordion-header-right">
             <div class="accordion-date">April 25, 2018</div>
-            <button class="accordion-toggle"></button>
+            <button class="accordion-toggle">+</button>
         </div>
     </div>
     <div class="accordion-body">
@@ -27,12 +115,12 @@
         <br>
         <!-- HTML generated using hilite.me -->
         <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
-            <pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">dict</span> <span
-                    style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span><span style="color: #e6db74">&quot;a&quot;</span> <span
-                    style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span><span
-                    style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;b&quot;</span> <span
-                    style="color: #f8f8f2">:</span> <span style="color: #ae81ff">2</span><span
-                    style="color: #f8f8f2">}</span></pre>
+        <pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">dict</span> <span
+                style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span><span style="color: #e6db74">&quot;a&quot;</span> <span
+                style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span><span
+                style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;b&quot;</span> <span
+                style="color: #f8f8f2">:</span> <span style="color: #ae81ff">2</span><span
+                style="color: #f8f8f2">}</span></pre>
         </div>
         <br>
         And I want to compare the key of the first index in the dictionary (which is "a") with with a string. So
@@ -44,9 +132,9 @@
                 style="margin: 0; line-height: 125%"><span style="color: #66d9ef">if</span> <span
                 style="color: #e6db74">&#39;Dictionary key&#39;</span> <span style="color: #f92672">==</span> <span
                 style="color: #e6db74">&quot;a&quot;</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">True</span>
+<span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">True</span>
 <span style="color: #66d9ef">else</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">False</span>
+<span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">False</span>
 </pre>
         </div>
         <br>
@@ -66,7 +154,7 @@
                 style="color: #f8f8f2">}</span>
 <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">key</span> <span
                     style="color: #f92672">in</span> <span style="color: #f8f8f2">my_dict:</span>
-    <span style="color: #66d9ef">print</span><span style="color: #f8f8f2">(key)</span>
+<span style="color: #66d9ef">print</span><span style="color: #f8f8f2">(key)</span>
 </pre>
         </div>
         <br>
@@ -91,12 +179,12 @@
                 style="color: #f8f8f2">}</span>
 <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">key</span> <span
                     style="color: #f92672">in</span> <span style="color: #f8f8f2">my_dict:</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">key</span> <span
+<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">key</span> <span
                     style="color: #f92672">==</span> <span style="color: #e6db74">&quot;a&quot;</span><span
                     style="color: #f8f8f2">:</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">True</span>
-    <span style="color: #66d9ef">else</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">False</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">True</span>
+<span style="color: #66d9ef">else</span><span style="color: #f8f8f2">:</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">False</span>
 </pre>
         </div>
         <br>
@@ -129,7 +217,7 @@
                 style="color: #f8f8f2">}</span>
 <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">key</span> <span
                     style="color: #f92672">in</span> <span style="color: #f8f8f2">my_dict:</span>
-    <span style="color: #66d9ef">print</span><span style="color: #f8f8f2">(my_dict[key])</span>
+<span style="color: #66d9ef">print</span><span style="color: #f8f8f2">(my_dict[key])</span>
 </pre>
         </div>
         <br>
@@ -151,7 +239,7 @@
         </a>
     </div>
 
-    <!-- Second question: Comparing dictionary key with string-->
+    <!-- Detecting year in list of strings-->
     <div class="accordion-header">
         <div class="accordion-header-left">
             <div class="accordion-icon"><i class="icon fa fa-caret-up" style="color: orange"></i></div>
@@ -160,7 +248,7 @@
         </div>
         <div class="accordion-header-right">
             <div class="accordion-date">April 18, 2018</div>
-            <button class="accordion-toggle"></button>
+            <button class="accordion-toggle">+</button>
         </div>
     </div>
     <div class="accordion-body">
@@ -169,16 +257,19 @@
         <br>
         <!-- HTML generated using hilite.me -->
         <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre
-                style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">words</span> <span style="color: #f92672">=</span> <span
+                style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">words</span> <span
+                style="color: #f92672">=</span> <span
                 style="color: #f8f8f2">[</span><span style="color: #e6db74">&#39;hello&#39;</span><span
                 style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;world&#39;</span><span
                 style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;name&#39;</span><span
-                style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;1&#39;</span><span style="color: #f8f8f2">,</span> <span
+                style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;1&#39;</span><span
+                style="color: #f8f8f2">,</span> <span
                 style="color: #e6db74">&#39;2018&#39;</span><span style="color: #f8f8f2">]</span>
 </pre>
         </div>
         <br>
-        I looking for the fastest way (python 3.6) to detect year "word" in the list. For example, "2018" is year. "1" not.
+        I looking for the fastest way (python 3.6) to detect year "word" in the list. For example, "2018" is year. "1"
+        not.
         Let's define the acceptable year range to 2000-2020.
         <br>
         Possible solution: check if the word is number ('2018'.isdigit()) and then convert it to int and check if valid
@@ -186,37 +277,43 @@
         <br>
         What is the fastest way to do it in python?
         <h3>My Answer</h3>
-        You can build a set of your valid years (as strings). Then loop through each of the words you want to test to check
+        You can build a set of your valid years (as strings). Then loop through each of the words you want to test to
+        check
         if it is a valid year:
         <br>
         <!-- HTML generated using hilite.me -->
         <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre
-                style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">words</span> <span style="color: #f92672">=</span> <span
+                style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">words</span> <span
+                style="color: #f92672">=</span> <span
                 style="color: #f8f8f2">[</span><span style="color: #e6db74">&#39;hello&#39;</span><span
                 style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;world&#39;</span><span
                 style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;name&#39;</span><span
-                style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;1&#39;</span><span style="color: #f8f8f2">,</span> <span
+                style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;1&#39;</span><span
+                style="color: #f8f8f2">,</span> <span
                 style="color: #e6db74">&#39;2018&#39;</span><span style="color: #f8f8f2">]</span>
 <span style="color: #f8f8f2">valid_years</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{str(x)</span> <span
                     style="color: #66d9ef">for</span> <span style="color: #f8f8f2">x</span> <span
-                    style="color: #f92672">in</span> <span style="color: #f8f8f2">range(</span><span style="color: #ae81ff">2000</span><span
+                    style="color: #f92672">in</span> <span style="color: #f8f8f2">range(</span><span
+                    style="color: #ae81ff">2000</span><span
                     style="color: #f8f8f2">,</span><span style="color: #ae81ff">2021</span><span
                     style="color: #f8f8f2">)}</span>
 
 <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">word</span> <span style="color: #f92672">in</span> <span
                     style="color: #f8f8f2">words:</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">word</span> <span
+<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">word</span> <span
                     style="color: #f92672">in</span> <span style="color: #f8f8f2">valid_years:</span>
-        <span style="color: #66d9ef">print</span> <span style="color: #f8f8f2">word</span>
+    <span style="color: #66d9ef">print</span> <span style="color: #f8f8f2">word</span>
 </pre>
         </div>
         <br>
         As Martijn Pieters mentioned in the comments, sets are the fastest solution for accessing items with an O(1)
         complexity:
         <br>
-        <blockquote><i>Sets let you test for membership in O(1) time, using a list has a linear O(length_of_list) cost</i>
+        <blockquote><i>Sets let you test for membership in O(1) time, using a list has a linear O(length_of_list)
+            cost</i>
         </blockquote>
-        As you can see in the comments, there are a lot of different ways of generating the set of valid_years, as long as
+        As you can see in the comments, there are a lot of different ways of generating the set of valid_years, as long
+        as
         your data structure is a Set you will have the fastest way of doing what you want.
         <br>
         You can read more here:
@@ -224,7 +321,8 @@
         <ul>
             <li><a href="https://docs.python.org/3.6/tutorial/datastructures.html#list-comprehensions" target="_blank">List
                 comprehension</a></li>
-            <li><a href="https://www.tutorialspoint.com/python_data_structure/python_sets.htm" target="_blank">Sets</a></li>
+            <li><a href="https://www.tutorialspoint.com/python_data_structure/python_sets.htm" target="_blank">Sets</a>
+            </li>
             <li><a href="https://wiki.python.org/moin/TimeComplexity" target="_blank"> Complexities for different Python
                 data structures</a>(so you can understand which data structures in Python are quicker for specific
                 operations)
@@ -237,7 +335,7 @@
         </a>
     </div>
 
-    <!-- Third question: How to customize database connection settings' timezone in django?-->
+    <!-- How to customize database connection settings' timezone in django?-->
     <div class="accordion-header">
         <div class="accordion-header-left">
             <div class="accordion-icon"><i class="icon fa fa-caret-up" style="color: orange"></i></div>
@@ -246,16 +344,18 @@
         </div>
         <div class="accordion-header-right">
             <div class="accordion-date">March 13, 2018</div>
-            <button class="accordion-toggle"></button>
+            <button class="accordion-toggle">+</button>
         </div>
     </div>
     <div class="accordion-body">
         <h3>User Question</h3>
         I am looking into django db backends. I have found that datetime values' timezone are changed to and forth by
-        django, while saving dates into db as well as retrieving them. During this conversion process, django uses database
+        django, while saving dates into db as well as retrieving them. During this conversion process, django uses
+        database
         connection's timezone settings.
         <br>
-        I have seen that by default for sqlite db, 'UTC' is the timezone. I want to change the database connections options,
+        I have seen that by default for sqlite db, 'UTC' is the timezone. I want to change the database connections
+        options,
         during the start of django application. How can I do that ?
         <br>
         Thanks in advance.
@@ -264,14 +364,16 @@
         <blockquote>
             <i>
                 When support for time zones is enabled, Django stores datetime information in UTC in the database, uses
-                time-zone-aware datetime objects internally, and translates them to the end user’s time zone in templates
+                time-zone-aware datetime objects internally, and translates them to the end user’s time zone in
+                templates
                 and forms.
                 <br>
                 Time zone support is disabled by default.
             </i>
         </blockquote>
         <br>
-        Because time zone support if disabled by default, you need to manually specify that you want Django to support it.
+        Because time zone support if disabled by default, you need to manually specify that you want Django to support
+        it.
         You can do so in your settings.py: For example, if you want UTC +1, then use:
         <br>
         <!-- HTML generated using hilite.me -->
@@ -290,7 +392,8 @@
         recommend having a read, their documentation is really clear/useful.
         <br><br>
         Also, if you need other time zones, here is a list of all usable time zones you could use <a
-            href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank">here</a>, which I found from
+            href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank">here</a>, which I found
+        from
         <a href="https://stackoverflow.com/questions/29311354/how-to-set-the-timezone-in-django/29311392#29311392"
            target="_blank">this post</a>.
         <h4>Link to StackOverflow question</h4>
@@ -299,4 +402,153 @@
             https://stackoverflow.com/questions/49259661/how-to-customize-database-connection-settings-timezone-in-django
         </a>
     </div>
+
+    <!-- Django TestCase: recreate database in self.subTest(...) -->
+    <div class="accordion-header">
+        <div class="accordion-header-left">
+            <div class="accordion-icon"><i class="icon fa fa-caret-up" style="color: orange"></i></div>
+            <div class="accordion-number">2</div>
+            <h3 class="accordion-title">Django TestCase: recreate database in self.subTest(...)</h3>
+        </div>
+        <div class="accordion-header-right">
+            <div class="accordion-date">September 7, 2017</div>
+            <button class="accordion-toggle">+</button>
+        </div>
+    </div>
+    <div class="accordion-body">
+        <h3>User Question</h3>
+        I need to test a function with different parameters, and the most proper way for this seems to be using the with
+        self.subTest(...) context manager.
+        <br>
+        However, the function writes something to the db, and it ends up in an inconsistent state. I can delete the
+        things I write, but it would be cleaner if I could recreate the whole db completely. Is there a way to do that?
+        <h3>My Answer</h3>
+        Not sure how to recreate the database in self.subTest() but I have another technique I am currently using which
+        might be of interest to you. You can use fixtures to create a "snapshot" of your database which will basically
+        be copied in a second database used only for testing purposes. I currently use this method to test code on a big
+        project I'm working on at work.
+        <br>
+        I'll post some example code to give you an idea of what this will look like in practice, but you might have to
+        do some extra research to tailor the code to your needs (I've added links to guide you).
+        <br>
+        The process is rather straighforward. You would be creating a copy of your database with only the data needed
+        by using fixtures, which will be stored in a .yaml file and accessed only by your test unit.
+        <br>
+        Here is what the process would look like:
+        <ol type="1">
+            <li>
+                List item you want to copy to your test database to populate it using fixtures. This will only create a
+                db with the needed data instead of stupidly copying the entire db. It will be stored in a .yaml file.
+            </li>
+            <br>
+            <b>generate.py</b>
+            <!-- HTML generated using hilite.me -->
+            <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre
+                    style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">django</span><span
+                    style="color: #f92672">.</span><span style="color: #f8f8f2">setup()</span>
+<span style="color: #f8f8f2">stdout</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">sys</span><span
+                        style="color: #f92672">.</span><span style="color: #f8f8f2">stdout</span>
+
+<span style="color: #f8f8f2">conf</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[</span>
+<span style="color: #f8f8f2">{</span>
+    <span style="color: #e6db74">&#39;file&#39;</span><span style="color: #f8f8f2">:</span> <span
+                        style="color: #e6db74">&#39;myfile.yaml&#39;</span><span style="color: #f8f8f2">,</span>
+    <span style="color: #e6db74">&#39;models&#39;</span><span style="color: #f8f8f2">:</span> <span
+                        style="color: #f8f8f2">[</span>
+        <span style="color: #f8f8f2">dict(model</span><span style="color: #f92672">=</span><span
+                        style="color: #e6db74">&#39;your.model&#39;</span><span style="color: #f8f8f2">,</span> <span
+                        style="color: #f8f8f2">pks</span><span style="color: #f92672">=</span><span
+                        style="color: #e6db74">&#39;your, primary, keys&#39;</span><span
+                        style="color: #f8f8f2">),</span>
+        <span style="color: #f8f8f2">dict(model</span><span style="color: #f92672">=</span><span
+                        style="color: #e6db74">&#39;your.model&#39;</span><span style="color: #f8f8f2">,</span> <span
+                        style="color: #f8f8f2">pks</span><span style="color: #f92672">=</span><span
+                        style="color: #e6db74">&#39;your, primary, keys&#39;</span><span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">]</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">]</span>
+
+<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">fixture</span> <span
+                        style="color: #f92672">in</span> <span style="color: #f8f8f2">conf:</span>
+<span style="color: #66d9ef">print</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;Processing: %s&#39;</span> <span
+                        style="color: #f92672">%</span> <span style="color: #f8f8f2">fixture[</span><span
+                        style="color: #e6db74">&#39;file&#39;</span><span style="color: #f8f8f2">])</span>
+<span style="color: #66d9ef">with</span> <span style="color: #f8f8f2">open(fixture[</span><span
+                        style="color: #e6db74">&#39;file&#39;</span><span style="color: #f8f8f2">],</span> <span
+                        style="color: #e6db74">&#39;w&#39;</span><span style="color: #f8f8f2">)</span> <span
+                        style="color: #66d9ef">as</span> <span style="color: #f8f8f2">f:</span>
+    <span style="color: #f8f8f2">sys</span><span style="color: #f92672">.</span><span
+                        style="color: #f8f8f2">stdout</span> <span style="color: #f92672">=</span> <span
+                        style="color: #f8f8f2">FixtureAnonymiser(f)</span>
+
+<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">model</span> <span
+                        style="color: #f92672">in</span> <span style="color: #f8f8f2">fixture[</span><span
+                        style="color: #e6db74">&#39;models&#39;</span><span style="color: #f8f8f2">]:</span>
+    <span style="color: #f8f8f2">call_command(</span><span style="color: #e6db74">&#39;dumpdata&#39;</span><span
+                        style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">model</span><span
+                        style="color: #f92672">.</span><span style="color: #f8f8f2">pop(</span><span
+                        style="color: #e6db74">&#39;model&#39;</span><span style="color: #f8f8f2">),</span> <span
+                        style="color: #f8f8f2">format</span><span style="color: #f92672">=</span><span
+                        style="color: #e6db74">&#39;yaml&#39;</span><span style="color: #f8f8f2">,indent</span><span
+                        style="color: #f92672">=</span><span style="color: #ae81ff">4</span><span
+                        style="color: #f8f8f2">,</span> <span style="color: #f92672">**</span><span
+                        style="color: #f8f8f2">model)</span>
+    <span style="color: #f8f8f2">sys</span><span style="color: #f92672">.</span><span
+                        style="color: #f8f8f2">stdout</span><span style="color: #f92672">.</span><span
+                        style="color: #f8f8f2">flush()</span>
+
+<span style="color: #f8f8f2">sys</span><span style="color: #f92672">.</span><span
+                        style="color: #f8f8f2">stdout</span> <span style="color: #f92672">=</span> <span
+                        style="color: #f8f8f2">stdout</span>
+</pre>
+            </div>
+            <br>
+            <li>
+                In your test unit, import your generated .yaml file as a fixture and your test will automatically use
+                this the data from the fixture to carry out the tests, keeping your main database untouched.
+            </li>
+            <br>
+            <b>test_class.py</b>
+            <!-- HTML generated using hilite.me -->
+            <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre
+                    style="margin: 0; line-height: 125%"><span style="color: #f92672">from</span> <span
+                    style="color: #f8f8f2">django.test</span> <span style="color: #f92672">import</span> <span
+                    style="color: #f8f8f2">TestCase</span>
+
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">classTest</span><span style="color: #f8f8f2">(TestCase):</span>
+
+<span style="color: #f8f8f2">fixtures</span> <span style="color: #f92672">=</span> <span
+                        style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;myfile.yaml&#39;</span><span
+                        style="color: #f8f8f2">,)</span>
+
+<span style="color: #66d9ef">def</span> <span style="color: #a6e22e">setUp</span><span
+                        style="color: #f8f8f2">(self):</span>
+    <span style="color: #e6db74">&quot;&quot;&quot;setup tests cases&quot;&quot;&quot;</span>
+   <span style="color: #75715e"># create the object you want to test here, which will use data from the fixtures</span>
+
+<span style="color: #66d9ef">def</span> <span style="color: #a6e22e">test_function</span><span
+                        style="color: #f8f8f2">(self):</span>
+    <span style="color: #f8f8f2">self</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">assertEqual(True,True)</span>
+    <span style="color: #75715e"># write your test here</span>
+</pre>
+            </div>
+        </ol>
+
+        You can read up more here:
+        <ul>
+            <li>
+                <a href="https://docs.djangoproject.com/en/1.11/" target="_blank">Django</a>
+            </li>
+            <li>
+                <a href="https://wiki.python.org/moin/YAML" target="_blank">YAML</a>
+            </li>
+        </ul>
+        <h4>Link to StackOverflow question</h4>
+        <a href="https://stackoverflow.com/questions/46099343/django-testcase-recreate-database-in-self-subtest/46099994#46099994"
+           target="_blank">
+            https://stackoverflow.com/questions/46099343/django-testcase-recreate-database-in-self-subtest/46099994#46099994
+        </a>
+    </div>
 </div>
+
+<br>
