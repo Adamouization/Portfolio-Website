@@ -4,174 +4,157 @@
     </div>
 </div>
 
-<div class="flex-row">
-    <div class="flex-item flex-item-stretch flex-column">
-        <a href="https://github.com/Adamouization/Breast-Cancer-Detection-Mammogram-Deep-Learning"
-           style="cursor: pointer"
-           target="_blank">
-            <img class="image" src="assets/img/mammogram.jpg">
-        </a>
-    </div>
-    <div class="flex-item flex-item-stretch-4 flex-column">
-        <h3>
-            <a class="h3-project-title" href="javascript:void(0)">Breast Cancer Detection in Mammograms using Machine
-                Learning techniques (Master's Thesis)</a>
-            <a class="github-button"
-               href="https://github.com/Adamouization/Breast-Cancer-Detection-Mammogram-Deep-Learning"
-               data-icon="octicon-star" data-show-count="true"
-               aria-label="Star Adamouization/Breast-Cancer-Detection-Mammogram-Deep-Learning on GitHub">Star</a>
-            <a class="github-button"
-               href="https://github.com/Adamouization/Breast-Cancer-Detection-Mammogram-Deep-Learning/fork"
-               data-icon="octicon-repo-forked" data-show-count="true"
-               aria-label="Fork Adamouization/Breast-Cancer-Detection-Mammogram-Deep-Learning on GitHub">Fork</a>
-            <a class="github-button"
-               href="https://github.com/Adamouization/Breast-Cancer-Detection-Mammogram-Deep-Learning/archive/master.zip"
-               data-icon="octicon-download"
-               aria-label="Download Adamouization/Breast-Cancer-Detection-Mammogram-Deep-Learning on GitHub">Download</a>
-        </h3>
-        <p class="text">
-            Convolution Neural Networks (CNNs) are used as part of a pipeline based on deep learning techniques. A
-            divide and conquer approach is followed to analyse the effects on performance and efficiency when utilising
-            diverse deep learning techniques such as varying network architectures (VGG19, ResNet50, InceptionV3,
-            DenseNet121, MobileNetV2), class weights, input sizes, image ratios, pre-processing techniques, transfer
-            learning, dropout rates, and types of mammogram projections.
-            <br>
-            This approach serves as a starting point for model development of mammography classification tasks.
-            Practitioners can benefit from this work by using the divide and conquer results to select the most suitable
-            deep learning techniques for their case out-of-the-box, thus reducing the need for extensive exploratory
-            experimentation. Multiple techniques are found to provide accuracy gains relative to a general baseline
-            (VGG19 model using uncropped 512×512 pixels input images with a dropout rate of 0.2 and a learning rate of
-            1×10<span class="sup">-3</span>) on the Curated Breast Imaging Subset of DDSM (CBIS-DDSM) dataset. These
-            techniques involve transfer learning pre-trained ImagetNet weights to a MobileNetV2 architecture, with
-            pre-trained weights from a binarised version of the mini Mammography Image Analysis Society (mini-MIAS)
-            dataset applied to the fully connected layers of the model, coupled with using weights to alleviate class
-            imbalance, and splitting CBIS-DDSM samples between images of masses and calcifications. Using these
-            techniques, a 5.6% gain in accuracy over the baseline model was accomplished. Other deep learning techniques
-            from the divide and conquer approach, such as larger image sizes, do not yield increased accuracies without
-            the use of image pre-processing techniques such as Gaussian filtering, histogram equalisation and input
-            cropping.
-        </p>
-        <div>
-            <button class="btn btn-2 btn-2a"
-                    onclick="window.open('https://github.com/Adamouization/Breast-Cancer-Detection-Mammogram-Deep-Learning/blob/master/Breast%20Cancer%20Detection%20in%20Mammograms%20using%20Deep%20Learning%20Techniques%20-%20Adam%20Jaamour%2C%202020.pdf', '_blank');">
-                Read Paper
-            </button>
-            <button class="btn btn-2 btn-2a"
-                    onclick="window.location.href = 'https://github.com/Adamouization/Breast-Cancer-Detection-Mammogram-Deep-Learning/raw/master/Breast%20Cancer%20Detection%20in%20Mammograms%20using%20Deep%20Learning%20Techniques%20-%20Adam%20Jaamour%2C%202020.pdf';">
-                Download PDF
-            </button>
-            <button class="btn btn-2 btn-2a"
-                    onclick="window.open('https://github.com/Adamouization/Breast-Cancer-Detection-Mammogram-Deep-Learning', '_blank');">
-                View Code
-            </button>
+<!-- Master's Thesis -->
+<div class="project">
+    <div class="project-card">
+        <div class="project-image">
+            <img src="assets/img/mammograms.png" alt="Image of a mammography">
+        </div>
+        <div class="project-info">
+            <h3 class="project-title">
+                Breast Cancer Detection in Mammograms using Machine Learning techniques (Master's Thesis)
+                <a class="github-button"
+                   href="https://github.com/Adamouization/Breast-Cancer-Detection-Mammogram-Deep-Learning"
+                   data-icon="octicon-star" data-show-count="true"
+                   aria-label="Star Adamouization/Breast-Cancer-Detection-Mammogram-Deep-Learning on GitHub">Star</a>
+                <a class="github-button"
+                   href="https://github.com/Adamouization/Breast-Cancer-Detection-Mammogram-Deep-Learning/fork"
+                   data-icon="octicon-repo-forked" data-show-count="true"
+                   aria-label="Fork Adamouization/Breast-Cancer-Detection-Mammogram-Deep-Learning on GitHub">Fork</a>
+            </h3>
+            <p class="project-description">
+                My Master's Thesis, where CNNs are used as part of a DL pipeline on the Curated Breast Imaging Subset of
+                DDSM (CBIS-DDSM) dataset. A
+                divide and conquer approach is followed to analyse the effects on performance and efficiency when
+                utilising diverse deep learning techniques such as varying network architectures (VGG19, ResNet50,
+                InceptionV3,
+                DenseNet121, MobileNetV2), class weights, input sizes, image ratios, pre-processing techniques, transfer
+                learning, dropout rates, and types of mammogram projections.
+            </p>
+            <div class="project-buttons">
+                <button class="btn btn-2 btn-2a"
+                        onclick="window.open('https://github.com/Adamouization/Breast-Cancer-Detection-Mammogram-Deep-Learning/blob/master/Breast%20Cancer%20Detection%20in%20Mammograms%20using%20Deep%20Learning%20Techniques%20-%20Adam%20Jaamour%2C%202020.pdf', '_blank');">
+                    Read Paper
+                </button>
+                <button class="btn btn-2 btn-2a"
+                        onclick="window.location.href = 'https://github.com/Adamouization/Breast-Cancer-Detection-Mammogram-Deep-Learning/raw/master/Breast%20Cancer%20Detection%20in%20Mammograms%20using%20Deep%20Learning%20Techniques%20-%20Adam%20Jaamour%2C%202020.pdf';">
+                    Download PDF
+                </button>
+                <button class="btn btn-2 btn-2a"
+                        onclick="window.open('https://github.com/Adamouization/Breast-Cancer-Detection-Mammogram-Deep-Learning', '_blank');">
+                    View Code
+                </button>
+            </div>
         </div>
     </div>
 </div>
 
-<hr class="dashed-line">
-<div class="flex-row">
-    <div class="flex-item flex-item-stretch flex-column">
-        <a href="https://github.com/Adamouization/Content-Based-Video-Retrieval-Code" style="cursor: pointer"
-           target="_blank">
-            <img class="image" src="assets/img/cbvr_thumbnail.png">
-        </a>
-    </div>
-    <div class="flex-item flex-item-stretch-4 flex-column">
-        <h3>
-            <a class="h3-project-title" href="javascript:void(0)">Content-Based Video Retrieval for Pattern Matching
-                Videos (Undergraduate Dissertation)</a>
-            <a class="github-button" href="https://github.com/Adamouization/Content-Based-Video-Retrieval-Code"
-               data-icon="octicon-star" data-show-count="true"
-               aria-label="Star Adamouization/Content-Based-Video-Retrieval-Code on GitHub">Star</a>
-            <a class="github-button" href="https://github.com/Adamouization/Content-Based-Video-Retrieval-Code/fork"
-               data-icon="octicon-repo-forked" data-show-count="true"
-               aria-label="Fork Adamouization/Content-Based-Video-Retrieval-Code on GitHub">Fork</a>
-            <a class="github-button"
-               href="https://github.com/Adamouization/Content-Based-Video-Retrieval-Code/archive/master.zip"
-               data-icon="octicon-download"
-               aria-label="Download Adamouization/Content-Based-Video-Retrieval-Code on GitHub">Download</a>
-        </h3>
-        <p class="text">
-            This project presents the design concepts and implementation steps of a content-based retrieval system for
-            videos. It was originally inspired by the famous music-matching mobile application Shazam, with the aim to
-            create a similar system for matching movies. Ultimately, a functional system was built by combining multiple
-            methods into one pipeline and tested with a database of 50 short videos along with various videos recorded
-            through mobile phones, resulting in correct matches reaching accuracies of 93%.
-        </p>
-        <div>
-            <button class="btn btn-2 btn-2a"
-                    onclick="window.open('https://github.com/Adamouization/Content-Based-Video-Retrieval-Dissertation/blob/master/Content_Based_Video_Retrieval_Dissertation.pdf', '_blank');">
-                Read Paper
-            </button>
-            <button class="btn btn-2 btn-2a"
-                    onclick="window.location.href = 'https://github.com/Adamouization/Content-Based-Video-Retrieval-Dissertation/raw/master/Content_Based_Video_Retrieval_Dissertation.pdf';">
-                Download PDF
-            </button>
-            <button class="btn btn-2 btn-2a"
-                    onclick="window.open('https://github.com/Adamouization/Content-Based-Video-Retrieval-Code', '_blank');">
-                View Code
-            </button>
+<!-- Bachelor's thesis -->
+<div class="project">
+    <div class="project-card">
+        <div class="project-image">
+            <img src="assets/img/cbvr_thumbnail.png" alt="Project Image">
+        </div>
+        <div class="project-info">
+            <h3 class="project-title">Content-Based Video Retrieval for Pattern Matching
+                Videos (Undergraduate Dissertation)
+                <a class="github-button" href="https://github.com/Adamouization/Content-Based-Video-Retrieval-Code"
+                   data-icon="octicon-star" data-show-count="true"
+                   aria-label="Star Adamouization/Content-Based-Video-Retrieval-Code on GitHub">Star</a>
+                <a class="github-button"
+                   href="https://github.com/Adamouization/Content-Based-Video-Retrieval-Code/fork"
+                   data-icon="octicon-repo-forked" data-show-count="true"
+                   aria-label="Fork Adamouization/Content-Based-Video-Retrieval-Code on GitHub">Fork</a>
+            </h3>
+            <p class="project-description">
+                This project presents the design concepts and implementation steps of a content-based retrieval
+                system for
+                videos. It was originally inspired by the famous music-matching mobile application Shazam, with the
+                aim to
+                create a similar system for matching movies. Ultimately, a functional system was built by combining
+                multiple
+                methods into one pipeline and tested with a database of 50 short videos along with various videos
+                recorded
+                through mobile phones, resulting in correct matches reaching accuracies of 93%.
+            </p>
+            <div class="project-buttons">
+                <button class="btn btn-2 btn-2a"
+                        onclick="window.open('https://github.com/Adamouization/Content-Based-Video-Retrieval-Dissertation/blob/master/Content_Based_Video_Retrieval_Dissertation.pdf', '_blank');">
+                    Read Paper
+                </button>
+                <button class="btn btn-2 btn-2a"
+                        onclick="window.location.href = 'https://github.com/Adamouization/Content-Based-Video-Retrieval-Dissertation/raw/master/Content_Based_Video_Retrieval_Dissertation.pdf';">
+                    Download PDF
+                </button>
+                <button class="btn btn-2 btn-2a"
+                        onclick="window.open('https://github.com/Adamouization/Content-Based-Video-Retrieval-Code', '_blank');">
+                    View Code
+                </button>
+            </div>
         </div>
     </div>
 </div>
 
-<hr class="dashed-line">
-<div class="flex-row">
-    <div class="flex-item flex-item-stretch flex-column">
-        <img class="image" src="assets/img/hackstack.png">
-    </div>
-    <div class="flex-item flex-item-stretch-4 flex-column">
-        <h3>
-            <a class="h3-project-title" href="javascript:void(0)">HacK-StacK</a>
-        </h3>
-        <p class="text">
-            HacK-StacK is a web application designed to help people learn the basics of cyber security so they can
-            defend themselves against online threats. Command-line and information security basics are covered through
-            sets of increasingly challenging problems carried out by typing commands directly from the built-in
-            HacK-StacK terminal. The users who complete the most challenges can reach the top of the leaderboards.
-        </p>
-        <div style="display: flex; align-items: flex-end">
-            <i>Website no longer maintained.</i> <!-- https://hack-stack.herokuapp.com/ -->
+<!-- hack-stack -->
+<div class="project">
+    <div class="project-card">
+        <div class="project-image">
+            <img src="assets/img/hackstack.png" alt="Hack-Stack screenshot">
+        </div>
+        <div class="project-info">
+            <h3 class="project-title">HacK-StacK</h3>
+            <p class="project-description">
+                HacK-StacK is a web application designed to help people learn the basics of cyber security so they
+                can
+                defend themselves against online threats. Command-line and information security basics are covered
+                through
+                sets of increasingly challenging problems carried out by typing commands directly from the built-in
+                HacK-StacK terminal. The users who complete the most challenges can reach the top of the
+                leaderboards.
+            </p>
+            <div style="display: flex; align-items: flex-end">
+                <i>Website no longer maintained.</i> <!-- https://hack-stack.herokuapp.com/ -->
+            </div>
         </div>
     </div>
 </div>
 
-<hr class="dashed-line">
-<div class="flex-row">
-    <div class="flex-item flex-item-stretch flex-column">
-        <a href="https://play.google.com/store/apps/details?id=com.monte_carlo_multimedia.adam_jaamour.fcfimmobilier"
-           style="cursor: pointer" target="_blank">
-            <img class="image" src="assets/img/fcf_app_thumbnail.jpg">
-        </a>
-    </div>
-    <div class="flex-item flex-item-stretch-4 flex-column">
-        <h3>
-            <a class="h3-project-title" href="javascript:void(0)">FCF Real-Estate Android Application</a>
-            <a class="github-button" href="https://github.com/Adamouization/FCF-Real-Estate-Monaco-Android-App"
-               data-icon="octicon-star" data-show-count="true"
-               aria-label="Star Adamouization/FCF-Real-Estate-Monaco-Android-App on GitHub">Star</a>
-            <a class="github-button" href="https://github.com/Adamouization/FCF-Real-Estate-Monaco-Android-App/fork"
-               data-icon="octicon-repo-forked" data-show-count="true"
-               aria-label="Fork Adamouization/FCF-Real-Estate-Monaco-Android-App on GitHub">Fork</a>
-            <a class="github-button"
-               href="https://github.com/Adamouization/FCF-Real-Estate-Monaco-Android-App/archive/master.zip"
-               data-icon="octicon-download"
-               aria-label="Download Adamouization/FCF-Real-Estate-Monaco-Android-App on GitHub">Download</a>
-        </h3>
-        <p class="text">
-            FCF Real-Estate is a catalogue to browse FCF Real-Estate Monaco's properties available for sale & renting.
-            It features a single XML feed for the data, property sorting, system of favourites, a search engine, an
-            offline mode, multiple language support, an HD image gallery and in-app emailing.
-        </p>
-        <div style="display: flex; align-items: flex-end">
-            <button class="btn btn-2 btn-2a"
-                    onclick="window.open('https://play.google.com/store/apps/details?id=com.monte_carlo_multimedia.adam_jaamour.fcfimmobilier', '_blank');">
-                Google Play
-            </button>
-            <button class="btn btn-2 btn-2a"
-                    onclick="window.open('https://github.com/Adamouization/FCF-Real-Estate-Monaco-Android-App', '_blank');">
-                View Code
-            </button>
+<!--  Android app  -->
+<div class="project">
+    <div class="project-card">
+        <div class="project-image">
+            <img src="assets/img/fcf_app_thumbnail.jpg" alt="Project Image">
+        </div>
+        <div class="project-info">
+            <h3 class="project-title">
+                FCF Real-Estate Android Application
+                <a class="github-button" href="https://github.com/Adamouization/FCF-Real-Estate-Monaco-Android-App"
+                   data-icon="octicon-star" data-show-count="true"
+                   aria-label="Star Adamouization/FCF-Real-Estate-Monaco-Android-App on GitHub">Star</a>
+                <a class="github-button"
+                   href="https://github.com/Adamouization/FCF-Real-Estate-Monaco-Android-App/fork"
+                   data-icon="octicon-repo-forked" data-show-count="true"
+                   aria-label="Fork Adamouization/FCF-Real-Estate-Monaco-Android-App on GitHub">Fork</a>
+            </h3>
+            <p class="project-description">
+                FCF Real-Estate is a catalogue to browse FCF Real-Estate Monaco's properties available for sale &
+                renting.
+                It features a single XML feed for the data, property sorting, system of favourites, a search engine,
+                an
+                offline mode, multiple language support, an HD image gallery and in-app emailing.
+            </p>
+            <div class="project-buttons">
+                <button class="btn btn-2 btn-2a"
+                        onclick="window.open('https://play.google.com/store/apps/details?id=com.monte_carlo_multimedia.adam_jaamour.fcfimmobilier', '_blank');">
+                    Google Play
+                </button>
+                <button class="btn btn-2 btn-2a"
+                        onclick="window.open('https://github.com/Adamouization/FCF-Real-Estate-Monaco-Android-App', '_blank');">
+                    View Code
+                </button>
+            </div>
         </div>
     </div>
+</div>
+
 </div>
