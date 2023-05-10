@@ -20,7 +20,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-content: flex-end;
-    align-items: center;
+    align-items: end;
     justify-content: center;
     width: 100%;
     height: auto
