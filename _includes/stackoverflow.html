@@ -9,6 +9,189 @@
 
 <div class="accordion">
 
+    <!-- Why does xgboost prediction have lower AUC than evaluation of same data in eval_set? -->
+    <div class="accordion-header">
+        <div class="accordion-header-left">
+            <div class="accordion-icon"><i class="icon fa fa-caret-up" style="color: orange"></i></div>
+            <div class="accordion-number">1</div>
+            <h3 class="accordion-title">Why does XGBoost prediction have lower AUC than eval of same data in
+                eval_set?</h3>
+        </div>
+        <div class="accordion-header-right">
+            <div class="accordion-date">November 21, 2023</div>
+            <button class="accordion-toggle">+</button>
+        </div>
+    </div>
+    <div class="accordion-body">
+        <h3>User Question</h3>
+        I am training a binary classifier and I want to know the AUC value for its performance on a test set. I thought
+        there were 2 similar ways to do this: 1) I enter the test set into parameter eval_set, and then I receive
+        corresponding AUC values for each boosting round in model.evals_result(); 2) After model training I make a
+        prediction for the test set and then calculate the AUC for that prediction. I had thought that these methods
+        should produce similar values, but the latter method (calculating AUC of a prediction) consistently produces
+        much lower values. Can you help me understand what is going on? I must have misunderstood the function of
+        eval_set.
+        <br>
+        Here is a fully reproducible example using a kaggle dataset (available <a
+            href="https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009/">here</a>):
+        <!-- HTML generated using hilite.me -->
+        <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre
+                style="margin: 0; line-height: 125%"><span style="color: #f92672">import</span> <span
+                style="color: #f8f8f2">pandas</span> <span style="color: #f92672">as</span> <span
+                style="color: #f8f8f2">pd</span>
+<span style="color: #f92672">from</span> <span style="color: #f8f8f2">sklearn.model_selection</span> <span
+                    style="color: #f92672">import</span> <span style="color: #f8f8f2">train_test_split</span>
+<span style="color: #f92672">from</span> <span style="color: #f8f8f2">sklearn.metrics</span> <span
+                    style="color: #f92672">import</span> <span style="color: #f8f8f2">RocCurveDisplay,</span> <span
+                    style="color: #f8f8f2">roc_curve,</span> <span style="color: #f8f8f2">auc</span>
+<span style="color: #f92672">from</span> <span style="color: #f8f8f2">xgboost</span> <span
+                    style="color: #f92672">import</span> <span style="color: #f8f8f2">XGBClassifier</span> <span
+                    style="color: #75715e"># xgboost version 1.7.6</span>
+<span style="color: #f92672">import</span> <span style="color: #f8f8f2">matplotlib.pyplot</span> <span
+                    style="color: #f92672">as</span> <span style="color: #f8f8f2">plt</span>
+
+<span style="color: #75715e"># Data available on kaggle here https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009/</span>
+<span style="color: #f8f8f2">data</span> <span style="color: #f92672">=</span> <span
+                    style="color: #f8f8f2">pd</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">read_csv(</span><span
+                    style="color: #e6db74">&#39;winequality-red.csv&#39;</span><span style="color: #f8f8f2">)</span>
+<span style="color: #f8f8f2">data</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">head()</span>
+
+<span style="color: #75715e"># Separate targets</span>
+<span style="color: #f8f8f2">X</span> <span style="color: #f92672">=</span> <span
+                    style="color: #f8f8f2">data</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">drop(</span><span
+                    style="color: #e6db74">&#39;quality&#39;</span><span style="color: #f8f8f2">,</span> <span
+                    style="color: #f8f8f2">axis</span><span style="color: #f92672">=</span><span style="color: #ae81ff">1</span><span
+                    style="color: #f8f8f2">)</span>
+<span style="color: #f8f8f2">y</span> <span style="color: #f92672">=</span> <span
+                    style="color: #f8f8f2">data[</span><span style="color: #e6db74">&#39;quality&#39;</span><span
+                    style="color: #f8f8f2">]</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">map(</span><span
+                    style="color: #66d9ef">lambda</span> <span style="color: #f8f8f2">x:</span> <span
+                    style="color: #ae81ff">1</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">x</span> <span
+                    style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">7</span> <span
+                    style="color: #66d9ef">else</span> <span style="color: #ae81ff">0</span><span
+                    style="color: #f8f8f2">)</span> <span style="color: #75715e"># wine quality &gt;7 is good, rest is not good</span>
+
+<span style="color: #75715e"># Split into training and test sets</span>
+<span style="color: #f8f8f2">X_train,</span> <span style="color: #f8f8f2">X_test,</span> <span style="color: #f8f8f2">y_train,</span> <span
+                    style="color: #f8f8f2">y_test</span> <span style="color: #f92672">=</span> <span
+                    style="color: #f8f8f2">train_test_split(X,</span> <span style="color: #f8f8f2">y,</span> <span
+                    style="color: #f8f8f2">test_size</span><span style="color: #f92672">=</span><span
+                    style="color: #ae81ff">0.2</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">random_state</span><span
+                    style="color: #f92672">=</span><span style="color: #ae81ff">42</span><span
+                    style="color: #f8f8f2">)</span>
+
+<span style="color: #75715e"># Create model and fit</span>
+<span style="color: #f8f8f2">params</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #e6db74">&#39;eval_metric&#39;</span><span style="color: #f8f8f2">:</span><span
+                    style="color: #e6db74">&#39;auc&#39;</span><span style="color: #f8f8f2">,</span>
+    <span style="color: #e6db74">&#39;objective&#39;</span><span style="color: #f8f8f2">:</span><span
+                    style="color: #e6db74">&#39;binary:logistic&#39;</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">model</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">XGBClassifier(</span><span
+                    style="color: #f92672">**</span><span style="color: #f8f8f2">params)</span>
+<span style="color: #f8f8f2">model</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">fit(</span>
+    <span style="color: #f8f8f2">X_train,</span>
+    <span style="color: #f8f8f2">y_train,</span>
+    <span style="color: #f8f8f2">eval_set</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">[(X_test,</span> <span
+                    style="color: #f8f8f2">y_test)]</span>
+<span style="color: #f8f8f2">)</span>
+</pre>
+        </div>
+        <br>
+        First I visualize the AUC metrics resulting from evaluating the test set provided in eval_set:
+        <!-- HTML generated using hilite.me -->
+        <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre
+                style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">results</span> <span
+                style="color: #f92672">=</span> <span style="color: #f8f8f2">model</span><span
+                style="color: #f92672">.</span><span style="color: #f8f8f2">evals_result()</span>
+<span style="color: #f8f8f2">plt</span><span style="color: #f92672">.</span><span
+                    style="color: #f8f8f2">plot(np</span><span style="color: #f92672">.</span><span
+                    style="color: #f8f8f2">arange(</span><span style="color: #ae81ff">0</span><span
+                    style="color: #f8f8f2">,</span><span style="color: #ae81ff">100</span><span style="color: #f8f8f2">),results[</span><span
+                    style="color: #e6db74">&#39;validation_0&#39;</span><span style="color: #f8f8f2">][</span><span
+                    style="color: #e6db74">&#39;auc&#39;</span><span style="color: #f8f8f2">])</span>
+<span style="color: #f8f8f2">plt</span><span style="color: #f92672">.</span><span
+                    style="color: #f8f8f2">title(</span><span
+                    style="color: #e6db74">&quot;AUC from eval_set&quot;</span><span style="color: #f8f8f2">)</span>
+<span style="color: #f8f8f2">plt</span><span style="color: #f92672">.</span><span
+                    style="color: #f8f8f2">xlabel(</span><span style="color: #e6db74">&quot;Estimator (boosting round)&quot;</span><span
+                    style="color: #f8f8f2">)</span>
+<span style="color: #f8f8f2">plt</span><span style="color: #f92672">.</span><span
+                    style="color: #f8f8f2">ylabel(</span><span style="color: #e6db74">&quot;AUC&quot;</span><span
+                    style="color: #f8f8f2">)</span>
+</pre>
+        </div>
+        <br>
+        <img src="assets/img/stackoverflow_post_images/so_q_20231123_auc.png" alt="AUC results" style="width: 100%">
+        <br>
+        Next, I make a prediction on the same test set, get the AUC, and visualize the ROC curve:
+        <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre
+                style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">test_predictions</span> <span
+                style="color: #f92672">=</span> <span style="color: #f8f8f2">model</span><span
+                style="color: #f92672">.</span><span style="color: #f8f8f2">predict(X_test)</span>
+<span style="color: #f8f8f2">fpr,</span> <span style="color: #f8f8f2">tpr,</span> <span style="color: #f8f8f2">thresholds</span> <span
+                    style="color: #f92672">=</span> <span style="color: #f8f8f2">roc_curve(y_true</span><span
+                    style="color: #f92672">=</span><span style="color: #f8f8f2">y_test,</span> <span
+                    style="color: #f8f8f2">y_score</span><span style="color: #f92672">=</span><span
+                    style="color: #f8f8f2">test_predictions,pos_label</span><span style="color: #f92672">=</span><span
+                    style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span>
+<span style="color: #f8f8f2">roc_auc</span> <span style="color: #f92672">=</span> <span
+                    style="color: #f8f8f2">auc(fpr,</span> <span style="color: #f8f8f2">tpr)</span>
+<span style="color: #f8f8f2">display</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">RocCurveDisplay(roc_auc</span><span
+                    style="color: #f92672">=</span><span style="color: #f8f8f2">roc_auc,</span> <span
+                    style="color: #f8f8f2">fpr</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">fpr,</span> <span
+                    style="color: #f8f8f2">tpr</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">tpr)</span>
+<span style="color: #f8f8f2">display</span><span style="color: #f92672">.</span><span
+                    style="color: #f8f8f2">plot()</span>
+</pre>
+        </div>
+        <br>
+        <img src="assets/img/stackoverflow_post_images/so_q_20231123_roc.png" alt="ROC curve" style="width: 100%">
+        As you can see, the AUC value of the prediction is 0.81, which is lower than any AUC calculated from evaluating
+        the same test set in eval_set. How have I misunderstood the two methods? Thanks, xgboost is new to me and I
+        appreciate your advice.
+        <br><br>
+
+        <h3>My Answer</h3>
+        XGBoost's eval_results uses predict_proba to calculate the AUC values in your first graph. By using predict, you
+        are getting the predicted class labels, instead of the predicted probabilities, hence the difference you are
+        observing.
+        <br>
+        You should use predict_proba instead of predict:
+        <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre
+                style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">test_probabs</span> <span
+                style="color: #f92672">=</span> <span style="color: #f8f8f2">model</span><span
+                style="color: #f92672">.</span><span style="color: #f8f8f2">predict_proba(X_test)[:,</span> <span
+                style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span>
+<span style="color: #f8f8f2">fpr,</span> <span style="color: #f8f8f2">tpr,</span> <span style="color: #f8f8f2">thresholds</span> <span
+                    style="color: #f92672">=</span> <span style="color: #f8f8f2">roc_curve(y_true</span><span
+                    style="color: #f92672">=</span><span style="color: #f8f8f2">y_test,</span> <span
+                    style="color: #f8f8f2">y_score</span><span style="color: #f92672">=</span><span
+                    style="color: #f8f8f2">test_probabs,</span> <span style="color: #f8f8f2">pos_label</span><span
+                    style="color: #f92672">=</span><span style="color: #ae81ff">1</span><span
+                    style="color: #f8f8f2">)</span>
+<span style="color: #f8f8f2">roc_auc</span> <span style="color: #f92672">=</span> <span
+                    style="color: #f8f8f2">auc(fpr,</span> <span style="color: #f8f8f2">tpr)</span>
+<span style="color: #f8f8f2">display</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">RocCurveDisplay(roc_auc</span><span
+                    style="color: #f92672">=</span><span style="color: #f8f8f2">roc_auc,</span> <span
+                    style="color: #f8f8f2">fpr</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">fpr,</span> <span
+                    style="color: #f8f8f2">tpr</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">tpr)</span>
+<span style="color: #f8f8f2">display</span><span style="color: #f92672">.</span><span
+                    style="color: #f8f8f2">plot()</span>
+</pre>
+        </div>
+        <br>
+        Output:
+        <img src="assets/img/stackoverflow_post_images/so_a_20231123.png" alt="ROC curve" style="width: 100%">
+        <br><br>
+
+        <h4>Link to StackOverflow question</h4>
+        <a href="https://stackoverflow.com/questions/77522478/why-does-xgboost-prediction-have-lower-auc-than-evaluation-of-same-data-in-eval/77522537#77522537"
+           target="_blank">
+            https://stackoverflow.com/questions/77522478/why-does-xgboost-prediction-have-lower-auc-than-evaluation-of-same-data-in-eval/77522537#77522537
+        </a>
+    </div>
+
     <!-- How do I detect and fill one pixel gaps in image in python -->
     <div class="accordion-header">
         <div class="accordion-header-left">
@@ -100,7 +283,7 @@
     <div class="accordion-header">
         <div class="accordion-header-left">
             <div class="accordion-icon"><i class="icon fa fa-caret-up" style="color: orange"></i></div>
-            <div class="accordion-number">5</div>
+            <div class="accordion-number">6</div>
             <h3 class="accordion-title">Comparing dictionary key with string</h3>
         </div>
         <div class="accordion-header-right">
@@ -340,7 +523,7 @@
     <div class="accordion-header">
         <div class="accordion-header-left">
             <div class="accordion-icon"><i class="icon fa fa-caret-up" style="color: orange"></i></div>
-            <div class="accordion-number">3</div>
+            <div class="accordion-number">4</div>
             <h3 class="accordion-title">How to customize database connection settings' timezone in django?</h3>
         </div>
         <div class="accordion-header-right">
