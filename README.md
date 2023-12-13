@@ -11,7 +11,8 @@ You can visit the website live here: [www.adam.jaamour.com](http://www.adam.jaam
 
 ## Download
 
-* **[v2.3](https://github.com/Adamouization/Adamouization.github.io/releases/tag/v2.3) (11/05/2023)**
+* ***[v2.4](https://github.com/Adamouization/Adamouization.github.io/releases/tag/v2.4) (13/12/2023)**
+* [v2.3](https://github.com/Adamouization/Adamouization.github.io/releases/tag/v2.3) (11/05/2023)
 * [v2.2](https://github.com/Adamouization/Adamouization.github.io/releases/tag/v2.2) (17/07/2022)
 * [v2.1](https://github.com/Adamouization/Adamouization.github.io/releases/tag/v2.1) (14/10/2020)
 * [v2.0](https://github.com/Adamouization/Adamouization.github.io/releases/tag/v2.0) (26/05/2020)
@@ -55,4 +56,3 @@ bundle exec jekyll serve --watch
 * Email: adam[at]jaamour[dot]com
 * Website: www.adam.jaamour.com
 * LinkedIn: [linkedin.com/in/adamjaamour](https://www.linkedin.com/in/adamjaamour/)
-* Twitter: [@Adamouization](https://twitter.com/Adamouization)
