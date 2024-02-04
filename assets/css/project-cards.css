@@ -12,7 +12,8 @@
     --assembly: rgba(110, 76, 19, 1);
     --haskell: rgba(94, 80, 134, 1);
     --matlab: rgba(225, 103, 55, 1);
-    --gdscript: rgba(60, 85, 110);
+    --gdscript: rgba(60, 85, 110, 1);
+    --ejs: rgba(167, 26, 70);
 }
 
 .card-container {
@@ -169,6 +170,12 @@
 
 .gdscript-language {
     background: linear-gradient(65deg, transparent 50%, var(--gdscript) 50%) left no-repeat, linear-gradient(0deg, var(--gdscript), var(--gdscript)) 30px 0 no-repeat;
+    background-size: 30px 100%, 100% 100%;
+    color: white;
+}
+
+.ejs-language {
+    background: linear-gradient(65deg, transparent 50%, var(--ejs) 50%) left no-repeat, linear-gradient(0deg, var(--ejs), var(--ejs)) 30px 0 no-repeat;
     background-size: 30px 100%, 100% 100%;
     color: white;
 }

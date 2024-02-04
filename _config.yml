@@ -11,5 +11,7 @@ email: adam@jaamour.com
 # Global settings
 icon_size: 58
 
-# Google analytics tracking ID
-google_analytics_tracking_id: UA-116916521-4
+exclude: [vendor]
+
+# Google Analytics tracking ID
+google_analytics_tracking_id: G-8HMF4KN8GS #UA-116916521-4

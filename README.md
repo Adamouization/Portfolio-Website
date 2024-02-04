@@ -1,4 +1,4 @@
-Adamouization.github.io [![GitHub license](https://img.shields.io/github/license/Adamouization/Adamouization.github.io)](https://github.com/Adamouization/Adamouization.github.io/blob/master/LICENSE)
+My Portfolio Website
 =======================
 
 This is a one-page mobile-friendly website powered by Jekyll that I use to act as an interactive online CV. It contains my programming skills, education, work experiences and online projects.
@@ -54,5 +54,5 @@ bundle exec jekyll serve --watch
 
 ## Contact
 * Email: adam[at]jaamour[dot]com
-* Website: www.adam.jaamour.com
+* Linktree: [linktr.ee/adamouization](https://linktr.ee/adamouization)
 * LinkedIn: [linkedin.com/in/adamjaamour](https://www.linkedin.com/in/adamjaamour/)
