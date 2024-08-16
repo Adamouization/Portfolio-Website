@@ -27,7 +27,18 @@ You can visit the website live here: [www.adam.jaamour.com](http://www.adam.jaam
 
 How to run the website locally.
 
+* [Install Ruby manually](https://jekyllrb.com/docs/installation/macos/), replacing the preinstalled ruby version (mac)
+
+```shell
+brew install chruby ruby-install xz
+ruby-install ruby 3.1.3  # ruby-install ruby 3.1.3
+```
+
 * [Install Jekyll](https://jekyllrb.com/docs/installation/)
+
+```shell
+gem install bundler jekyll
+```
 
 * Clone the repository (or download the zipped project):
 ```
