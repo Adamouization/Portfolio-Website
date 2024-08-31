@@ -1,7 +1,7 @@
 # Site settings
 title: Adam Jaamour
 description: My personal programming website, including my programming experiences, education, past jobs, contact details, and more.
-url: "http://www.adam.jaamour.com" # the base hostname & protocol for your site
+url: "https://adam.jaamour.com/" # the base hostname & protocol for your site
 # baseurl: "" # the subpath of your site, e.g. /blog
 
 # User settings
@@ -14,4 +14,4 @@ icon_size: 58
 exclude: [vendor]
 
 # Google Analytics tracking ID
-google_analytics_tracking_id: G-8HMF4KN8GS #UA-116916521-4
+google_analytics_tracking_id: G-8HMF4KN8GS
