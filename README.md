@@ -59,8 +59,8 @@ bundle exec jekyll serve --watch
 * Visit the website on `127.0.0.1:4000`
 
 ## To Do
-* see [TODO - Initial Release](https://github.com/Adamouization/Adamouization.github.io/projects/1) file.
-* see [TODO - Future Releases](https://github.com/Adamouization/Adamouization.github.io/projects/3) file.
+* see [TODO - Initial Release](https://github.com/Adamouization/Adamouization.github.io/projects/1) board.
+* see [TODO - Future Releases](https://github.com/users/Adamouization/projects/2) board.
 
 ## License 
 * see [LICENSE](https://github.com/Adamouization/Adamouization.github.io/blob/master/LICENSE) file.
