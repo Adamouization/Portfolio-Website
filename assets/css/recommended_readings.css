@@ -1,0 +1,46 @@
+/* Recommended readings */
+.zoom-container {
+    transition: transform .2s;
+    box-sizing: border-box;
+    margin: 25px 40px 25px;
+    text-align: center
+}
+.zoom-container:hover {
+    -ms-transform: scale(1.25); /* IE 9 */
+    -webkit-transform: scale(1.25); /* Safari 3-8 */
+    transform: scale(1.25);
+}
+.book-zoom {
+    max-height: 275px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Carousel horizontal scrolling */
+.carousel-container {
+    position: relative; /* Ensure arrows are positioned relative to this container */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent line breaks */
+    padding: 20px 0; /* Add some padding */
+}
+
+.carousel {
+    display: inline-flex; /* Align items in a row */
+}
+
+.zoom-container {
+    display: inline-block; /* Allow items to be inline */
+    margin-right: 20px; /* Space between items */
+}
+
+/* New styles for the scroll indicator */
+.scroll-indicator {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50px; /* Width of the indicator */
+    /* background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%); */
+    pointer-events: none; /* Allow clicks to pass through */
+    z-index: 1; /* Ensure it appears above other elements */
+}
