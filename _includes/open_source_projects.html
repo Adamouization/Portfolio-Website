@@ -12,7 +12,8 @@
             title: "My Personal Retro Blog",
             description: "A retro blog built with Hexo and EJS dedicated to my personal hobbies and activities outside of work.",
             githubLink: "https://github.com/Adamouization/Adamouization.github.io",
-            languages: "EJS"
+            languages: "EJS",
+            websiteLink: "https://adamouization.github.io"
         },
         {
             title: "Short-Term Solar Irradiance Forecasting using LSTMs",
@@ -36,7 +37,8 @@
             title: "Trello Card Counter",
             description: "A Firefox extension that counts the number of cards in each column of any Trello board.",
             githubLink: "https://github.com/Adamouization/Trello-Card-Counter-Mozilla-Extension",
-            languages: "CSS, Javascript, HTML"
+            languages: "CSS, Javascript, HTML",
+            websiteLink: "https://trellocardcounter.jaamour.com/"
         },
         {
             title: "Machine Learning, Data Science & Python Notes",
@@ -54,7 +56,8 @@
             title: "Coronavirus Insights Dashboard",
             description: "A node.js application deployed on Heroku showing the spread of Coronavirus through visualisations designed in D3.JS.",
             githubLink: "https://github.com/Adamouization/Corona-Virus-Insights-Dashboard",
-            languages: "Javascript, CSS, HTML"
+            languages: "Javascript, CSS, HTML",
+            websiteLink: "https://corona-virus-insights.fly.dev/"
         },
         {
             title: "Predicting Superconductors' Critical Temperatures using Regression",
@@ -84,7 +87,8 @@
             title: "Introduction to Web Standards Website",
             description: "A website introducing users to the role/influence of web standards and the W3C in the World Wide Web.",
             githubLink: "https://github.com/Adamouization/Introduction-to-Web-Standards-Website",
-            languages: "HTML, CSS, Javascript"
+            languages: "HTML, CSS, Javascript",
+            websiteLink: "https://webstandards.jaamour.com/index.html"
         },
         {
             title: "Flight Route Planner using AI Search",
@@ -108,7 +112,8 @@
             title: "Formula 1 Crash Statistics Website",
             description: "Flask web application parsing F1 crash statistics from Wikipedia and displaying them in charts and tables.",
             githubLink: "https://github.com/Adamouization/Formula1-Crash-Stats",
-            languages: "Python, HTML, CSS"
+            languages: "Python, HTML, CSS",
+            websiteLink: "https://f1-dnf-stats.fly.dev/"
         },
         {
             title: "Computer Vision: Filtering, Object Recognition & Features",
@@ -132,13 +137,14 @@
             title: "AdamouizationFilms Website",
             description: "One-page mobile-friendly website built with Jekyll and Bootstrap showcasing my online filmmaking projects.",
             githubLink: "https://github.com/Adamouization/AdamouizationFilms",
-            languages: "HTML, CSS"
+            languages: "HTML, CSS",
+            websiteLink: "http://www.adamouization.jaamour.com/"
         },
         {
             title: "Space Shooter Video Game",
             description: "A prototype space-shooter video game created in AGK BASIC v2 to learn the basics of game development through a 2D game engine.",
             githubLink: "https://github.com/Adamouization/Space-Shooter",
-            languages: "Basic"
+            languages: "Assembly"
         },
         {
             title: "Binary Image Classifier",
@@ -156,23 +162,33 @@
 
     function createCard(project) {
         const card = document.createElement('div');
-        card.className = 'card';
+        card.className = 'card shadow-2xl rounded-lg p-4 transition-transform transform hover:scale-110 border border-gray-300';
         card.innerHTML = `
             <div class="card-text-wrapper">
-                <h4>${project.title}</h4>
-                <p>${project.description}</p>
+                <h4 class="text-xl font-semibold">${project.title}</h4>
+                <p class="text-gray-700">${project.description}</p>
             </div>
             <div class="language-tag-wrapper">
                 ${project.languages.split(',').map(lang => `
                     <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=${lang.trim().toLowerCase()}" target="_blank">
-                        <div class="language-tag ${lang.trim().toLowerCase()}-language">${lang.trim()}</div>
+                        <div class="language-tag ${lang.trim().toLowerCase()}-language bg-gray-200 rounded-full px-3 py-1 text-sm">
+                            ${lang.trim()}
+                        </div>
                     </a>
                 `).join('')}
             </div>
-            <button class="github-button" onclick="window.open('${project.githubLink}', '_blank');">
-                <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-                View on GitHub
-            </button>
+            <div class="button-container flex space-x-2 mt-2">
+                <button class="github-button bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition-colors duration-300 transform hover:scale-105" onclick="window.open('${project.githubLink}', '_blank');">
+                    <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
+                    View on GitHub
+                </button>
+                ${project.websiteLink ? `
+                <button class="github-button bg-green-500 text-white rounded-lg px-4 py-2 hover:bg-green-700 transition-colors duration-300 transform hover:scale-105" onclick="window.open('${project.websiteLink}', '_blank');">
+                    <i class="icon fa fa-globe github-button-icon" aria-hidden="true"></i>
+                    Visit Website
+                </button>
+                ` : ''}
+            </div>
         `;
         return card;
     }
