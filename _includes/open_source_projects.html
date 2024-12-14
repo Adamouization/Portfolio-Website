@@ -4,668 +4,184 @@
     </div>
 </div>
 
-<div class="card-container">
+<div class="card-container" id="card-container"></div>
 
-    <!-- Retro Blog  -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>My Personal Retro Blog</h4>
-            <p>
-                A retro blog built with Hexo and EJS dedicated to my personal hobbies and activities outside of work.
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=ejs"
-               target="_blank">
-                <div class="language-tag ejs-language">
-                    EJS
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/Adamouization.github.io', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
+<script>
+    const projects = [
+        {
+            title: "My Personal Retro Blog",
+            description: "A retro blog built with Hexo and EJS dedicated to my personal hobbies and activities outside of work.",
+            githubLink: "https://github.com/Adamouization/Adamouization.github.io",
+            languages: "EJS"
+        },
+        {
+            title: "Short-Term Solar Irradiance Forecasting using LSTMs",
+            description: "Predicting short-term solar irradiance using deep learning and statistical methods on the Folsom dataset.",
+            githubLink: "https://github.com/Adamouization/Solar-Irradiance-Forecasting",
+            languages: "Jupyter"
+        },
+        {
+            title: "Code in Place 2023",
+            description: "My slides + code solutions to the exercises for the 2023 edition of the Stanford Code in Place online course that I am teaching for.",
+            githubLink: "https://github.com/Adamouization/Code-In-Place-2023",
+            languages: "Python"
+        },
+        {
+            title: "2D Pixel Platformer Video Game",
+            description: "Building a 2D pixel platformer video game to learn game development. Built using the Godot Engine (3.5).",
+            githubLink: "https://github.com/Adamouization/Godot-Pixel-Platformer",
+            languages: "Gdscript"
+        },
+        {
+            title: "Trello Card Counter",
+            description: "A Firefox extension that counts the number of cards in each column of any Trello board.",
+            githubLink: "https://github.com/Adamouization/Trello-Card-Counter-Mozilla-Extension",
+            languages: "CSS, Javascript, HTML"
+        },
+        {
+            title: "Machine Learning, Data Science & Python Notes",
+            description: "Python code and notes in the form of Jupyter Notebooks useful for general Machine Learning and Data Science projects.",
+            githubLink: "https://github.com/Adamouization/Python-Machine-Learning-Data-Science-Notes",
+            languages: "Jupyter"
+        },
+        {
+            title: "Seal Pup Aerial Imagery Neural Network Classifier",
+            description: "Machine Learning & data visualisation/processing techniques for classifying seal pups from aerial imagery using Neural Networks.",
+            githubLink: "https://github.com/Adamouization/Seal-Pup-Aerial-Imagery-Neural-Network-Classifier",
+            languages: "Python, Jupyter, LaTeX"
+        },
+        {
+            title: "Coronavirus Insights Dashboard",
+            description: "A node.js application deployed on Heroku showing the spread of Coronavirus through visualisations designed in D3.JS.",
+            githubLink: "https://github.com/Adamouization/Corona-Virus-Insights-Dashboard",
+            languages: "Javascript, CSS, HTML"
+        },
+        {
+            title: "Predicting Superconductors' Critical Temperatures using Regression",
+            description: "Machine Learning & data visualisation techniques for predicting the critical temperatures of superconductors.",
+            githubLink: "https://github.com/Adamouization/Superconductors-Critical-Temperature-Predictions-Regression",
+            languages: "Python, Jupyter"
+        },
+        {
+            title: "POS Tagger with Unknown Words Handling",
+            description: "Part-of-Speech (POS) tagger for predicting POS tags in sentences from the Brown corpus using the Viberbi algorithm.",
+            githubLink: "https://github.com/Adamouization/POS-Tagging-and-Unknown-Words",
+            languages: "Python"
+        },
+        {
+            title: "Neural Network Ticketing Routing Agent",
+            description: "Ticketing-routing agent using neural networks to learn the data and how to submit new tickets based on optimal hyperparameters.",
+            githubLink: "https://github.com/Adamouization/Neural-Network-Ticketing-Routing-Agent",
+            languages: "Python, LaTeX"
+        },
+        {
+            title: "HTTP Web Server",
+            description: "Implementation of a simple HTTP server in Java, supporting basic HTTP requests, binary images and multithreading.",
+            githubLink: "https://github.com/Adamouization/HTTP-Web-Server",
+            languages: "Java, Shell"
+        },
+        {
+            title: "Introduction to Web Standards Website",
+            description: "A website introducing users to the role/influence of web standards and the W3C in the World Wide Web.",
+            githubLink: "https://github.com/Adamouization/Introduction-to-Web-Standards-Website",
+            languages: "HTML, CSS, Javascript"
+        },
+        {
+            title: "Flight Route Planner using AI Search",
+            description: "Flight route planning agent using classic AI search algorithms (A*, Best-First, DFS, BFS).",
+            githubLink: "https://github.com/Adamouization/AI-Search-Flight-Route-Planner",
+            languages: "Java"
+        },
+        {
+            title: "My Portfolio Website",
+            description: "The code for this very website, a one-page mobile-friendly website powered by Jekyll acting as an interactive online CV.",
+            githubLink: "https://github.com/Adamouization/Adamouization.github.io",
+            languages: "HTML, CSS, Javascript"
+        },
+        {
+            title: "Meal Tracker iOS App",
+            description: "Meal tracker and rating iOS application built in Swift to learn the basics of the iOS programming language.",
+            githubLink: "https://github.com/Adamouization/MealTrackerApp",
+            languages: "Swift"
+        },
+        {
+            title: "Formula 1 Crash Statistics Website",
+            description: "Flask web application parsing F1 crash statistics from Wikipedia and displaying them in charts and tables.",
+            githubLink: "https://github.com/Adamouization/Formula1-Crash-Stats",
+            languages: "Python, HTML, CSS"
+        },
+        {
+            title: "Computer Vision: Filtering, Object Recognition & Features",
+            description: "Image matching using intensity-based and feature-based template matching (SIFT) algorithms.",
+            githubLink: "https://github.com/Adamouization/Computer-Vision-Filtering-and-Object-Recognition-and-Features",
+            languages: "Python, LaTeX"
+        },
+        {
+            title: "Environment Exploring Rover",
+            description: "A wall-following rover built using a LeJOS EV3, touch sensors and ultrasonic sensors for an intelligent system research project.",
+            githubLink: "https://github.com/Adamouization/Environment-Exploring-Rover",
+            languages: "Java, LaTeX"
+        },
+        {
+            title: "Relaxation Technique Parallelised in C using Pthreads and MPI",
+            description: "Relaxation technique using POSIX threads (shared memory) and MPI (distributed memory).",
+            githubLink: "https://github.com/Adamouization/Relaxation-Technique-Parallel-Computing",
+            languages: "C, Shell"
+        },
+        {
+            title: "AdamouizationFilms Website",
+            description: "One-page mobile-friendly website built with Jekyll and Bootstrap showcasing my online filmmaking projects.",
+            githubLink: "https://github.com/Adamouization/AdamouizationFilms",
+            languages: "HTML, CSS"
+        },
+        {
+            title: "Space Shooter Video Game",
+            description: "A prototype space-shooter video game created in AGK BASIC v2 to learn the basics of game development through a 2D game engine.",
+            githubLink: "https://github.com/Adamouization/Space-Shooter",
+            languages: "Basic"
+        },
+        {
+            title: "Binary Image Classifier",
+            description: "Binary image classifier using Gaussian Mixture Models and computer vision-based feature extraction written in MatLab.",
+            githubLink: "https://github.com/Adamouization/Binary-Image-Classifier",
+            languages: "MATLAB"
+        },
+        {
+            title: "Haskell Text-Based Adventure Game",
+            description: "Text-based adventure game played in the terminal written in a functional way in Haskell.",
+            githubLink: "https://github.com/Adamouization/Haskell-Adventure-Game",
+            languages: "Haskell"
+        },
+    ];
 
-    <!-- Short-Term Solar Irradiance Forecasting using LSTMs  -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>Short-Term Solar Irradiance Forecasting using LSTMs</h4>
-            <p>
-                Predicting short-term solar irradiance using deep learning and statistical methods on the Folsom dataset.
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=jupyter+notebook"
-               target="_blank">
-                <div class="language-tag jupyter-language">
-                    Jupyter
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/Solar-Irradiance-Forecasting', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
+    function createCard(project) {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <div class="card-text-wrapper">
+                <h4>${project.title}</h4>
+                <p>${project.description}</p>
+            </div>
+            <div class="language-tag-wrapper">
+                ${project.languages.split(',').map(lang => `
+                    <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=${lang.trim().toLowerCase()}" target="_blank">
+                        <div class="language-tag ${lang.trim().toLowerCase()}-language">${lang.trim()}</div>
+                    </a>
+                `).join('')}
+            </div>
+            <button class="github-button" onclick="window.open('${project.githubLink}', '_blank');">
+                <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
+                View on GitHub
+            </button>
+        `;
+        return card;
+    }
 
-    <!-- Code in Place 2023 -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>Code in Place 2023</h4>
-            <p>
-                My slides + code solutions to the exercises for the 2023 edition of the Stanford Code in Place online
-                course that I am teaching for.
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=python"
-               target="_blank">
-                <div class="language-tag python-language">
-                    Python
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/Code-In-Place-2023', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- Godot 2D Platformer -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>2D Pixel Platformer Video Game</h4>
-            <p>
-                Building a 2D pixel platformer video game to learn game development. Built using the Godot Engine (3.5).
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=gdscript"
-               target="_blank">
-                <div class="language-tag gdscript-language">
-                    Gdscript
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/Godot-Pixel-Platformer', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- Trello Card Counter Mozilla Firefox Extension -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>Trello Card Counter</h4>
-            <p>
-                A Firefox extension that counts the number of cards in each column of any Trello board.
-            </p>
-            <a href="https://addons.mozilla.org/en-GB/firefox/addon/trello-card-count/" target="_blank">
-                <img src="../assets/img/get-the-addon-178x60px.dad84b42.png" height="40" alt="Download Extension"></a>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=css" target="_blank">
-                <div class="language-tag css-language">
-                    CSS
-                </div>
-            </a>
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=javascript"
-               target="_blank">
-                <div class="language-tag javascript-language">
-                    Javascript
-                </div>
-            </a>
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=html" target="_blank">
-                <div class="language-tag html-language">
-                    HTML
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/Trello-Card-Counter-Mozilla-Extension', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- Python - Machine Learning & Data Science Notes -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>Machine Learning, Data Science & Python Notes</h4>
-            <p>
-                Python code and notes in the form of Jupyter Notebooks useful for general Machine Learning and Data
-                Science projects.
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=jupyter+notebook"
-               target="_blank">
-                <div class="language-tag jupyter-language">
-                    Jupyter
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/Python-Machine-Learning-Data-Science-Notes', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- Seal Pup Aerial Imagery Neural Network Classifier -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>Seal Pup Aerial Imagery Neural Network Classifier</h4>
-            <p>
-                Machine Learning & data visualisation/processing techniques for classifying seal pups from aerial
-                imagery using Neural Networks.
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=python"
-               target="_blank">
-                <div class="language-tag python-language">
-                    Python
-                </div>
-            </a>
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=jupyter+notebook"
-               target="_blank">
-                <div class="language-tag jupyter-language">
-                    Jupyter
-                </div>
-            </a>
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=tex" target="_blank">
-                <div class="language-tag latex-language">
-                    LaTeX
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/Seal-Pup-Aerial-Imagery-Neural-Network-Classifier', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- Coronavirus Insights Dashboard -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>Coronavirus Insights Dashboard</h4>
-            <p>
-                A node.js application deployed on Heroku showing the spread of Coronavirus through visualisations
-                designed in D3.JS.
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=javascript"
-               target="_blank">
-                <div class="language-tag javascript-language">
-                    Javascript
-                </div>
-            </a>
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=css" target="_blank">
-                <div class="language-tag css-language">
-                    CSS
-                </div>
-            </a>
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=html" target="_blank">
-                <div class="language-tag html-language">
-                    HTML
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/Corona-Virus-Insights-Dashboard', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- Predicting Superconductors' Critical Temperatures using Regression -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>Predicting Superconductors' Critical Temperatures using Regression</h4>
-            <p>
-                Machine Learning & data visualisation techniques for predicting the critical temperatures of
-                superconductors.
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=python"
-               target="_blank">
-                <div class="language-tag python-language">
-                    Python
-                </div>
-            </a>
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=jupyter+notebook"
-               target="_blank">
-                <div class="language-tag jupyter-language">
-                    Jupyter
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/Superconductors-Critical-Temperature-Predictions-Regression', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- NLP: POS Tagger with Unknown Words Handling -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>POS Tagger with Unknown Words Handling</h4>
-            <p>
-                Part-of-Speech (POS) tagger for predicting POS tags in sentences from the Brown corpus using the Viberbi
-                algorithm.
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=python"
-               target="_blank">
-                <div class="language-tag python-language">
-                    Python
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/POS-Tagging-and-Unknown-Words', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- Ticketing-routing agent using neural networks to submit new tickets based pre-determined optimal parameters. -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>Neural Network Ticketing Routing Agent</h4>
-            <p>
-                Ticketing-routing agent using neural networks to learn the data and how to submit new tickets based on
-                optimal hyperparameters.
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=python"
-               target="_blank">
-                <div class="language-tag python-language">
-                    Python
-                </div>
-            </a>
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=tex" target="_blank">
-                <div class="language-tag latex-language">
-                    LaTeX
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/Neural-Network-Ticketing-Routing-Agent', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- Java HTTP Web Server. -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>HTTP Web Server</h4>
-            <p>
-                Implementation of a simple HTTP server in Java, supporting basic HTTP requests, binary images and
-                multithreading.
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=java" target="_blank">
-                <div class="language-tag java-language">
-                    Java
-                </div>
-            </a>
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=shell" target="_blank">
-                <div class="language-tag shell-language">
-                    Shell
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/HTTP-Web-Server', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- Introduction to  Web Standards Website. -->
-<!--    <div class="card">-->
-<!--        <div class="card-text-wrapper">-->
-<!--            <h4>Introduction to Web Standards Website</h4>-->
-<!--            <p>-->
-<!--                A website introducing users to the role/influence of web standards and the W3C in the World Wide Web.-->
-<!--            </p>-->
-<!--        </div>-->
-<!--        <div class="language-tag-wrapper">-->
-<!--            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=html" target="_blank">-->
-<!--                <div class="language-tag html-language">-->
-<!--                    HTML-->
-<!--                </div>-->
-<!--            </a>-->
-<!--            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=css" target="_blank">-->
-<!--                <div class="language-tag css-language">-->
-<!--                    CSS-->
-<!--                </div>-->
-<!--            </a>-->
-<!--            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=javascript"-->
-<!--               target="_blank">-->
-<!--                <div class="language-tag javascript-language">-->
-<!--                    Javascript-->
-<!--                </div>-->
-<!--            </a>-->
-<!--        </div>-->
-<!--        <button class="github-button"-->
-<!--                onclick="window.open('https://github.com/Adamouization/Introduction-to-Web-Standards-Website', '_blank');">-->
-<!--            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>-->
-<!--            View on GitHub-->
-<!--        </button>-->
-<!--    </div>-->
-
-    <!-- Flight Route Planner using AI Search. -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>Flight Route Planner using AI Search</h4>
-            <p>
-                Flight route planning agent using classic AI search algorithms (A*, Best-First, DFS, BFS).
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=java" target="_blank">
-                <div class="language-tag java-language">
-                    Java
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/AI-Search-Flight-Route-Planner', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- My Portfolio Website. -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>My Portfolio Website</h4>
-            <p>
-                The code for this very website, a one-page mobile-friendly website powered by Jekyll acting as an
-                interactive online CV.
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=html" target="_blank">
-                <div class="language-tag html-language">
-                    HTML
-                </div>
-            </a>
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=css" target="_blank">
-                <div class="language-tag css-language">
-                    CSS
-                </div>
-            </a>
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=javascript"
-               target="_blank">
-                <div class="language-tag javascript-language">
-                    Javascript
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/Adamouization.github.io', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- Meal Tracker iOS App. -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>Meal Tracker iOS App</h4>
-            <p>
-                Meal tracker and rating iOS application built in Swift to learn the basics of the iOS programming
-                language.
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=swift" target="_blank">
-                <div class="language-tag swift-language">
-                    Swift
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/MealTrackerApp', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- Formula 1 Crash Statistics Website. -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>Formula 1 Crash Statistics Website</h4>
-            <p>
-                Flask web application parsing F1 crash statistics from Wikipedia and displaying them in charts and
-                tables.
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=python"
-               target="_blank">
-                <div class="language-tag python-language">
-                    Python
-                </div>
-            </a>
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=html" target="_blank">
-                <div class="language-tag html-language">
-                    HTML
-                </div>
-            </a>
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=css" target="_blank">
-                <div class="language-tag css-language">
-                    CSS
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/Formula1-Crash-Stats', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- Computer Vision: Filtering, Object Recognition & Features. -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>Computer Vision: Filtering, Object Recognition & Features</h4>
-            <p>
-                Image matching using intensity-based and feature-based template matching (SIFT) algorithms.
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=python"
-               target="_blank">
-                <div class="language-tag python-language">
-                    Python
-                </div>
-            </a>
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=tex" target="_blank">
-                <div class="language-tag latex-language">
-                    LaTeX
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/Computer-Vision-Filtering-and-Object-Recognition-and-Features', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- Environment Exploring Rover. -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>Environment Exploring Rover</h4>
-            <p>
-                A wall-following rover built using a LeJOS EV3, touch sensors and ultrasonic sensors for an intelligent
-                system research
-                project.
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=java" target="_blank">
-                <div class="language-tag java-language">
-                    Java
-                </div>
-            </a>
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=tex" target="_blank">
-                <div class="language-tag latex-language">
-                    LaTeX
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/Environment-Exploring-Rover', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- Relaxation Technique Parallelised in C using Pthreads and MPI. -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>Relaxation Technique Parallelised in C</h4>
-            <p>
-                Relaxation technique using POSIX threads (shared memory) and MPI (distributed memory).
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=c" target="_blank">
-                <div class="language-tag c-language">
-                    C
-                </div>
-            </a>
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=shell" target="_blank">
-                <div class="language-tag shell-language">
-                    Shell
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/Relaxation-Technique-Parallel-Computing', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- AdamouizationFilms Website. -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>AdamouizationFilms Website</h4>
-            <p>
-                One-page mobile-friendly website built with Jekyll and Bootstrap showcasing my online filmmaking
-                projects.
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=html" target="_blank">
-                <div class="language-tag html-language">
-                    HTML
-                </div>
-            </a>
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=css" target="_blank">
-                <div class="language-tag css-language">
-                    CSS
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/AdamouizationFilms', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- Space Shooter Video Game. -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>Space Shooter Video Game</h4>
-            <p>
-                A prototype space-shooter video game created in AGK BASIC v2 to learn the basics of game development
-                through a 2D game engine.
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=assembly"
-               target="_blank">
-                <div class="language-tag assembly-language">
-                    Basic
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/Space-Shooter', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- Binary Image Classifier. -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>Binary Image Classifier</h4>
-            <p>
-                Binary image classifier using Gaussian Mixture Models and computer vision-based feature extraction
-                written in MatLab.
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=matlab" target="_blank">
-                <div class="language-tag matlab-language">
-                    MATLAB
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/Binary-Image-Classifier', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-    <!-- Haskell Text-Based Adventure Game. -->
-    <div class="card">
-        <div class="card-text-wrapper">
-            <h4>Haskell Text-Based Adventure Game</h4>
-            <p>
-                Text-based adventure game played in the terminal written in a functional way in Haskell.
-            </p>
-        </div>
-        <div class="language-tag-wrapper">
-            <a href="https://github.com/Adamouization?tab=repositories&q=&type=public&language=haskell" target="_blank">
-                <div class="language-tag haskell-language">
-                    Haskell
-                </div>
-            </a>
-        </div>
-        <button class="github-button"
-                onclick="window.open('https://github.com/Adamouization/Haskell-Adventure-Game', '_blank');">
-            <i class="icon fa fa-github-alt github-button-icon" aria-hidden="true"></i>
-            View on GitHub
-        </button>
-    </div>
-
-</div>
+    const cardContainer = document.getElementById('card-container');
+    projects.forEach(project => {
+        cardContainer.appendChild(createCard(project));
+    });
+</script>
 
 <br>
 
@@ -673,7 +189,7 @@
     <button class="btn btn-2 btn-2a"
             onclick="window.open('https://github.com/Adamouization?tab=repositories', '_blank');">See more
     </button>
-    <button class="btn btn-2 btn-2a"
+    <!-- <button class="btn btn-2 btn-2a"
             onclick="window.open('https://adam.jaamour.com/assets/AdamJaamourCV.pdf');">Download CV
-    </button>
+    </button> -->
 </div>
