@@ -3,6 +3,19 @@
  * Author: Adam Jaamour
  */
 
+/* Aligning titles */
+.center-align-content {
+    text-align: center;
+}
+
+.projects-list-title {
+    text-align: center;
+    margin: 5px auto
+}
+.projects-list-title h1, body {
+    font-weight: 400
+}
+
 /* Create three equal columns that floats next to each other */
 .education-column {
     float: left;
@@ -30,12 +43,15 @@
 }
 
 /* HR lines */
-hr.gradient-line { /* used between website sections */
+hr.gradient-line {
+    /* used between website sections */
     border: 0;
     height: 1px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
-hr.dashed-line { /* used between projects */
+
+hr.dashed-line {
+    /* used between projects */
     width: 95%;
     border: 0;
     height: 1px;
@@ -47,12 +63,16 @@ hr.dashed-line { /* used between projects */
     text-align: center;
     margin: 5px auto
 }
-.user-details-bis h1, body {
+
+.user-details-bis h1,
+body {
     font-weight: 400
 }
+
 .user-details-bis p {
     font-size: 16px;
 }
+
 .user-details-bis h2 {
     font-weight: 400;
 }
