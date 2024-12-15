@@ -1,6 +1,6 @@
 # Site settings
 title: Adam Jaamour
-description: My personal programming website, including my programming experiences, education, past jobs, contact details, and more.
+description: Adam Jaamour's portfolio of past and ongoing work, includes publications, projects, open-source projects, recommended readings, stackoverflow contributions and more.
 url: "https://adam.jaamour.com/" # the base hostname & protocol for your site
 # baseurl: "" # the subpath of your site, e.g. /blog
 

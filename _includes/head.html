@@ -1,28 +1,82 @@
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-    <meta name="description"
-          content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-    <meta name="keywords"
-          content="software engineer, software, code, AI, artificial intelligence, formula 1, f1, python, java, jekyll, portfolio, resume, adam jaamour"/>
-    <meta name="revised" content="Adam Jaamour, date_last_edited: 26/05/2020"/>
-    <meta name="author" content="Adam Jaamour"/>
+      <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+      <meta name="description"
+            content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+      <meta name="keywords"
+            content="data science, AI, AI Agents, LLM, cursor, causal AI, F1, formula 1, python, typescript, javascript, entrepreneur, shipfast, portfolio, adam jaamour">
+      <meta name="robots" content="index, follow">
+      <meta name="author" content="Adam Jaamour">
+      <meta name="revised" content="Adam Jaamour, date_last_edited: 15/12/2024" />
+      <meta name="author" content="Adam Jaamour" />
+      <meta name="language" content="en">
 
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}">
-    <link rel="stylesheet" href="{{ '/assets/css/custom.css' | prepend: site.baseurl }}">
-    <link rel="stylesheet" href="{{ '/assets/css/project-list.css' | prepend: site.baseurl }}">
-    <link rel="stylesheet" href="{{ '/assets/css/project-cards.css' | prepend: site.baseurl }}">
-    <link rel="stylesheet" href="{{ '/assets/css/buttons.css' | prepend: site.baseurl }}">
-    <link rel="stylesheet" href="{{ '/assets/css/stackoverflow.css' | prepend: site.baseurl }}">
-    <link rel="stylesheet" href="{{ '/assets/css/modal.css' | prepend: site.baseurl }}">
-    <link rel="stylesheet" href="{{ '/assets/css/recommended_readings.css' | prepend: site.baseurl }}">
-    <link rel="shortcut icon" type="image/png" href="{{ '/assets/favicon.ico' }}">
+      <!-- Canonical URL -->
+      <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+      <!-- Open Graph Meta Tags -->
+      <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+      <meta property="og:description"
+            content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+      <meta property="og:image" content="{{ site.url }}/assets/img/opengraph.png">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:site_name" content="{{ site.title }}">
 
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+      <!-- Twitter Card Meta Tags -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+      <meta name="twitter:description"
+            content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+      <meta name="twitter:image" content="{{ site.url }}/assets/img/opengraph.png">
+      <meta name="twitter:site" content="@Adamouization">
+      <meta name="twitter:creator" content="@Adamouization">
+
+      <!-- Favicon and Icons -->
+      <link rel="shortcut icon" type="image/png" href="{{ '/assets/favicon.ico' }}">
+      <!-- <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/icons/apple-touch-icon.png' }}">
+      <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/icons/favicon-32x32.png' }}">
+      <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/icons/favicon-16x16.png' }}"> -->
+
+      <link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}">
+      <link rel="stylesheet" href="{{ '/assets/css/custom.css' | prepend: site.baseurl }}">
+      <link rel="stylesheet" href="{{ '/assets/css/project-list.css' | prepend: site.baseurl }}">
+      <link rel="stylesheet" href="{{ '/assets/css/project-cards.css' | prepend: site.baseurl }}">
+      <link rel="stylesheet" href="{{ '/assets/css/buttons.css' | prepend: site.baseurl }}">
+      <link rel="stylesheet" href="{{ '/assets/css/stackoverflow.css' | prepend: site.baseurl }}">
+      <link rel="stylesheet" href="{{ '/assets/css/modal.css' | prepend: site.baseurl }}">
+      <link rel="stylesheet" href="{{ '/assets/css/recommended_readings.css' | prepend: site.baseurl }}">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+            integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+
+      <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+      <!-- Structured Data (JSON-LD) for Rich Snippets -->
+      <script type="application/ld+json">
+      {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Adam Jaamour",
+          "description": "Adam Jaamour's portfolio of past and ongoing work, includes publications, projects, open-source projects, recommended readings, stackoverflow contributions and more.",
+          "url": "https://adam.jaamour.com/",
+          "author": {
+              "@type": "Person",
+              "name": "Adam Jaamour"
+          },
+          "publisher": {
+              "@type": "Organization",
+              "name": "Adam Jaamour Portfolio"
+          },
+          "image": {
+              "@type": "ImageObject",
+              "url": "https://adam.jaamour.com/assets/img/opengraph.png"
+          }
+      }
+      </script>
 </head>
