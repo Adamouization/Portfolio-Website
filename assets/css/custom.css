@@ -88,3 +88,9 @@ body {
     bottom: 1ex;
     font-size: 80%;
 }
+.header-icons .x-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
