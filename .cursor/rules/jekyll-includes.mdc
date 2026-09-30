@@ -1,0 +1,15 @@
+---
+description: HTML/Liquid conventions for Jekyll includes and layouts
+globs: _includes/**/*.html,_layouts/**/*.html,index.html
+alwaysApply: false
+---
+
+# Jekyll includes
+
+- One section per `_includes/` file. `_includes/about.html` only composes them (plus `hr.gradient-line` separators).
+- Work and education cards use `.user-details-bis` > `.education-row` > `.education-column`. Logos use `height`/`width="{{ site.icon_size }}"` and a real `alt`.
+- Section titles use `.projects-list-title` with an `h1`, matching existing blocks.
+- External links: `target="_blank"`. Own products: keep `?ref=adamjaamour` (or the existing `?ref=adamportfolio` on Punto Med).
+- Liquid: `{{ site.* }}` and `{% include %}` only. Do not add plugins or collections.
+- Large projects / open source: edit the JS data arrays in those includes; do not revive the commented static card markup.
+- Privacy modal markup stays in `_includes/footer.html`.

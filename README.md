@@ -31,7 +31,7 @@ How to run the website locally.
 
 ```shell
 brew install chruby ruby-install xz
-ruby-install ruby 3.1.3  # ruby-install ruby 3.1.3
+ruby-install ruby 3.1.3 
 ```
 
 * [Install Jekyll](https://jekyllrb.com/docs/installation/)

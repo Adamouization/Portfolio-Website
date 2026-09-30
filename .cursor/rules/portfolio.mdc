@@ -1,0 +1,14 @@
+---
+description: Non-negotiable conventions for this Jekyll portfolio
+alwaysApply: true
+---
+
+# Portfolio site
+
+This is a **Jekyll one-pager** (Ruby 3.1.3, `github-pages` gem), not Next.js. Read `AGENTS.md` before changing structure or stack.
+
+- Content lives in `_includes/`. Do not invent career facts; ask when a date, employer, or claim is missing.
+- Newest work/education/projects go **first**. Leave commented-out legacy HTML in place.
+- Visual tweaks go in `assets/css/custom.css`, not `main.css`.
+- Serve with `bundle exec jekyll serve --watch` after Bundler install to `vendor/bundle`.
+- Do not commit `_site/`, `vendor/`, or `.cursor/hooks/state/`.

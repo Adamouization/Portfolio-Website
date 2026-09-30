@@ -1,0 +1,13 @@
+---
+description: CSS and vanilla JS conventions for this site
+globs: assets/css/**/*.css,assets/js/**/*.js
+alwaysApply: false
+---
+
+# CSS and JS
+
+- Feature styles live in dedicated files (`project-cards.css`, `modal.css`, …) already linked from `_includes/head.html`. One-off overrides go in `custom.css`.
+- Work/education columns already stack at `max-width: 600px`. Preserve that when changing layout.
+- JS is vanilla (no bundler, no modules). `main.js` owns particles + footer year; `typewriter.js` reads `data-type` / `data-period` on `.typewrite`.
+- Do not introduce jQuery, React, or npm packages. CDN scripts already in the footer (particles.js, Font Awesome, Pure.css) are enough.
+- Keep `var`/`const` style consistent with the file you are editing.
