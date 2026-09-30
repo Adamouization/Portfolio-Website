@@ -7,7 +7,7 @@ Adam Jaamour's one-page personal site (interactive CV). Live at [adam.jaamour.co
 ## Stack
 
 - Jekyll via the `github-pages` gem (not a Node/Next.js app)
-- Ruby **3.1.3** (`.ruby-version`)
+- Ruby **3.3.6** (`.ruby-version`)
 - Liquid templates, vanilla HTML/CSS/JS
 - Pure.css + Font Awesome 4 + particles.js
 - Google Analytics (`G-8HMF4KN8GS`); Vercel Analytics is present but commented out
@@ -44,7 +44,7 @@ Section order in `_includes/about.html` (do not reorder without asking):
 Ruby is not a Python venv. Isolate gems with Bundler:
 
 ```bash
-chruby 3.1.3                          # or rbenv/asdf reading .ruby-version
+chruby 3.3.6                          # or rbenv/asdf reading .ruby-version
 bundle config set --local path vendor/bundle
 bundle install
 bundle exec jekyll serve --watch      # or ./run.sh
@@ -96,7 +96,7 @@ After HTML/CSS/JS/content changes: `bundle exec jekyll serve --watch`, then chec
 
 ## Learned User Preferences
 
-- Isolate Ruby gems with Bundler `path vendor/bundle` (chruby + `.ruby-version` 3.1.3); do not use a Python-style venv or the system gemset.
+- Isolate Ruby gems with Bundler `path vendor/bundle` (chruby + `.ruby-version` 3.3.6); do not use a Python-style venv or the system gemset.
 - Keep this site a Jekyll one-pager. Do not migrate the stack unless explicitly asked.
 - Do not invent or embellish career facts; ask when copy needs a date, employer, or claim that is not already in the repo.
 - Leave commented-out legacy HTML in place unless asked to delete it.
@@ -104,7 +104,7 @@ After HTML/CSS/JS/content changes: `bundle exec jekyll serve --watch`, then chec
 ## Learned Workspace Facts
 
 - Canonical host is `https://adam.jaamour.com/`; GitHub remote is `Adamouization/Portfolio-Website`. Older README/clone URLs and the open-source card for this site still point at `Adamouization.github.io`.
-- Jekyll is driven by `github-pages` + `webrick`; Ruby 3.1.3. `run.sh` serves and opens `http://127.0.0.1:4000`.
+- Jekyll is driven by `github-pages` + `webrick`; Ruby 3.3.6. `run.sh` serves and opens `http://127.0.0.1:4000`.
 - Large projects and open-source lists are JS data arrays rendered into the DOM, not extra Liquid pages.
 - Work and education share the `.education-row` / `.education-column` three-column card layout (stacks at 600px).
 - Google Analytics is live; Vercel Analytics include is commented out in `_layouts/default.html`.

@@ -5,6 +5,7 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 vendor/
+.bundle/
 
 # Cursor continual-learning runtime (cadence + transcript index)
 .cursor/hooks/state/

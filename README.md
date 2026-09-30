@@ -27,18 +27,15 @@ You can visit the website live here: [www.adam.jaamour.com](http://www.adam.jaam
 
 How to run the website locally.
 
-* [Install Ruby manually](https://jekyllrb.com/docs/installation/macos/), replacing the preinstalled ruby version (mac)
+* [Install Ruby manually](https://jekyllrb.com/docs/installation/macos/), replacing the preinstalled Ruby version (mac)
 
 ```shell
-brew install chruby ruby-install xz
-ruby-install ruby 3.1.3 
+brew install chruby ruby-install xz openssl@3 libyaml
+ruby-install ruby 3.3.6
 ```
 
-* [Install Jekyll](https://jekyllrb.com/docs/installation/)
-
-```shell
-gem install bundler jekyll
-```
+Jekyll and Bundler are installed from the project dependencies below. Do not install
+gems into the system Ruby or global gemset.
 
 * Clone the repository (or download the zipped project):
 ```
@@ -48,6 +45,7 @@ $ git clone https://github.com/Adamouization/Adamouization.github.io
 * Move in the directory and install the dependencies specified in the Gemfile:
 
 ```
+bundle config set --local path vendor/bundle
 bundle install
 ```
 
