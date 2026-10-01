@@ -26,7 +26,7 @@
 }
 
 .project-card {
-    height: 350px; /* Set a fixed height for all cards */
+    aspect-ratio: 1200 / 630; /* Match the Pokédex image ratio */
     overflow: hidden;
     border-radius: 0 0 8px 8px; /* Only round the bottom corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -71,7 +71,7 @@
 }
 
 .project-description {
-    font-size: 16px; /* Smaller description size */
+    font-size: 13px; /* Keep hover descriptions compact */
     font-weight:600;
     margin-bottom: 10px; /* Adjusted margin */
     line-height: 1.4; /* Improved line height */
@@ -97,6 +97,20 @@
 
 /* Responsive adjustments */
 @media only screen and (max-width: 768px) {
+    .project-card-container {
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .project-ribbon {
+        height: auto;
+        min-height: 44px;
+        padding: 10px 12px;
+        font-size: 16px;
+        line-height: 1.3;
+    }
+
     .project-card {
         flex-direction: column;
         border-radius: 5px;
@@ -104,12 +118,74 @@
 
     .project-image {
         width: 100%;
-        height: 300px;
+        height: 100%;
         border-radius: 5px 5px 0 0;
         border: 1px solid rgba(0, 0, 0, 0.75);
     }
 
     .project-info {
         padding: 10px; /* Adjusted padding for smaller screens */
+    }
+
+    .project-card:hover .project-info {
+        opacity: 0;
+    }
+
+    .project-card .project-info {
+        pointer-events: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .project-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .project-modal.is-open {
+        display: flex;
+    }
+
+    .project-modal-content {
+        position: relative;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        padding: 24px 18px 18px;
+        border-radius: 8px;
+        background: #fff;
+        color: #222;
+        text-align: center;
+    }
+
+    .project-modal-close {
+        position: absolute;
+        top: 4px;
+        right: 12px;
+        border: 0;
+        background: transparent;
+        color: #777;
+        font-size: 28px;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    .project-modal-title {
+        margin: 0 24px 14px;
+        color: #3d516e;
+        font-size: 20px;
+        line-height: 1.3;
+    }
+
+    .project-modal-description {
+        margin-bottom: 14px;
+        font-size: 13px;
+        line-height: 1.5;
     }
 }

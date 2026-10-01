@@ -18,14 +18,16 @@
 
 /* Carousel horizontal scrolling */
 .carousel-container {
-    position: relative; /* Ensure arrows are positioned relative to this container */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    white-space: nowrap; /* Prevent line breaks */
-    padding: 20px 0; /* Add some padding */
+    position: relative;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 20px 0;
+    scrollbar-width: thin;
 }
 
 .carousel {
-    display: inline-flex; /* Align items in a row */
+    display: inline-flex;
+    animation: carousel-nudge 1.8s ease-out 1.2s both;
 }
 
 .zoom-container {
@@ -33,14 +35,54 @@
     margin-right: 20px; /* Space between items */
 }
 
-/* New styles for the scroll indicator */
 .scroll-indicator {
     position: absolute;
     right: 0;
-    top: 0;
-    height: 100%;
-    width: 50px; /* Width of the indicator */
-    /* background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%); */
-    pointer-events: none; /* Allow clicks to pass through */
-    z-index: 1; /* Ensure it appears above other elements */
+    top: 20px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 18px 0 34px;
+    color: #fff;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(37, 37, 37, .92) 34%);
+    font-size: 13px;
+    letter-spacing: .02em;
+    pointer-events: none;
+    transition: opacity .3s ease, transform .3s ease;
+    z-index: 1;
+}
+
+.scroll-indicator i {
+    font-size: 18px;
+    animation: scroll-arrow 1s ease-in-out infinite;
+}
+
+.carousel-container.is-scrolled .scroll-indicator {
+    opacity: 0;
+    transform: translateX(10px);
+}
+
+@keyframes carousel-nudge {
+    0%, 65%, 100% { transform: translateX(0); }
+    78% { transform: translateX(-28px); }
+}
+
+@keyframes scroll-arrow {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+}
+
+@media screen and (max-width: 600px) {
+    .scroll-indicator {
+        padding-right: 12px;
+        font-size: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .carousel,
+    .scroll-indicator i {
+        animation: none;
+    }
 }

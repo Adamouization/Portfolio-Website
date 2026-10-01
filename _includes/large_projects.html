@@ -164,7 +164,7 @@
         {
             title: "Pokédex Checklist: Gotta Check 'Em All!",
             image: "assets/img/pokedex-opengraph.png",
-            description: "Pokédex Checklist helps Pokémon fans track their collection and progress across the games.",
+            description: "A web app with 6000+ users that allows them to track their National Pokédex collection with a simple checklist. They can mark collected cards, share their progress and compete on a leaderboard. All 1,025 species in one place.",
             buttons: [
                 { text: "Visit Website", link: "https://www.pokedexchecklist.com/?ref=adamjaamour" },
             ]
@@ -254,7 +254,63 @@
     }
 
     const projectCardsContainer = document.querySelector('.project-cards-container');
+    const mobileProjectQuery = window.matchMedia('(max-width: 768px)');
+
+    function closeProjectModal() {
+        const modal = document.querySelector('.project-modal');
+        if (modal) {
+            modal.classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
+    }
+
+    function openProjectModal(project) {
+        let modal = document.querySelector('.project-modal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.className = 'project-modal';
+            modal.innerHTML = `
+                <div class="project-modal-content" role="dialog" aria-modal="true">
+                    <button class="project-modal-close" type="button" aria-label="Close project details">&times;</button>
+                    <h2 class="project-modal-title"></h2>
+                    <p class="project-modal-description"></p>
+                    <div class="project-modal-buttons"></div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            modal.addEventListener('click', event => {
+                if (event.target === modal || event.target.closest('.project-modal-close')) {
+                    closeProjectModal();
+                }
+            });
+        }
+
+        modal.querySelector('.project-modal-title').textContent = project.title;
+        modal.querySelector('.project-modal-description').textContent = project.description;
+        modal.querySelector('.project-modal-buttons').innerHTML = project.buttons.map(button => `
+            <button class="project-button" type="button" onclick="window.open('${button.link}', '_blank');">
+                ${button.text}
+            </button>
+        `).join('');
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+    }
+
     large_projects.forEach(project => {
         projectCardsContainer.innerHTML += createProjectCard(project);
+    });
+
+    document.querySelectorAll('.project-card-container').forEach((card, index) => {
+        card.addEventListener('click', event => {
+            if (mobileProjectQuery.matches && !event.target.closest('button')) {
+                openProjectModal(large_projects[index]);
+            }
+        });
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            closeProjectModal();
+        }
     });
 </script>
